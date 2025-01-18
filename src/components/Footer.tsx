@@ -1,111 +1,99 @@
 'use client'
 
 import React from "react";
-import Box from "@mui/material/Box";
-import IconButton from "@mui/material/IconButton";
-import Link from "@mui/material/Link";
-import { useTheme } from "@mui/material/styles";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import YouTubeIcon from "@mui/icons-material/YouTube";
+import {Box, Center, HStack, IconButton, Link as ChakraLink, Image as ChakraImage} from "@chakra-ui/react";
+import {LuFacebook, LuGithub, LuInstagram, LuTwitter, LuYoutube} from "react-icons/lu";
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
-  const theme = useTheme(); // Access the current theme
-
   return (
-    <Box
-      component="footer"
-      sx={{
-        backgroundColor: theme.palette.background.default, // Theme-aware background
-        borderTop: `1px solid ${theme.palette.divider}`, // Theme-aware divider
-        py: 3,
-        px: 2,
-        textAlign: "center",
-        color: theme.palette.text.primary, // Theme-aware text color
-      }}
-    >
+    <Box>
       {/* Social Media Icons */}
-      <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
-        <IconButton
-          href="https://instagram.com"
-          target="_blank"
-          aria-label="Instagram"
-          sx={{ color: theme.palette.text.primary }}
-        >
-          <InstagramIcon />
-        </IconButton>
-        <IconButton
-          href="https://facebook.com"
-          target="_blank"
-          aria-label="Facebook"
-          sx={{ color: theme.palette.text.primary }}
-        >
-          <FacebookIcon />
-        </IconButton>
-        <IconButton
-          href="https://twitter.com"
-          target="_blank"
-          aria-label="Twitter"
-          sx={{ color: theme.palette.text.primary }}
-        >
-          <TwitterIcon />
-        </IconButton>
-        <IconButton
-          href="https://github.com"
-          target="_blank"
-          aria-label="GitHub"
-          sx={{ color: theme.palette.text.primary }}
-        >
-          <GitHubIcon />
-        </IconButton>
-        <IconButton
-          href="https://youtube.com"
-          target="_blank"
-          aria-label="YouTube"
-          sx={{ color: theme.palette.text.primary }}
-        >
-          <YouTubeIcon />
-        </IconButton>
-      </Box>
+      <Center>
+        <HStack>
+          <ChakraLink asChild>
+            <Link
+              href="https://instagram.com"
+              target="_blank"
+            >
+              <IconButton variant="ghost">
+                <LuInstagram />
+              </IconButton>
+            </Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link
+                href="https://facebook.com"
+                target="_blank"
+            >
+              <IconButton variant="ghost">
+                <LuFacebook />
+              </IconButton>
+            </Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link
+                href="https://twitter.com"
+                target="_blank"
+            >
+              <IconButton variant="ghost">
+                <LuTwitter />
+              </IconButton>
+            </Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link
+                href="https://github.com"
+                target="_blank"
+            >
+              <IconButton variant="ghost">
+                <LuGithub />
+              </IconButton>
+            </Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link
+                href="https://youtube.com"
+                target="_blank"
+            >
+              <IconButton variant="ghost">
+                <LuYoutube />
+              </IconButton>
+            </Link>
+          </ChakraLink>
+        </HStack>
+      </Center>
 
       {/* Footer Links */}
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "row",
-          gap: 1,
-        }}
-      >
-        <img src="/static/images/logo.png" alt="WCA Logo" style={{ height: 50 }} />
-        <Link href="/about" underline="none" sx={{ color: theme.palette.text.primary }}>
-          About Us
-        </Link>
-        <Link href="/faqs" underline="none" sx={{ color: theme.palette.text.primary }}>
-          FAQs
-        </Link>
-        <Link href="/contact" underline="none" sx={{ color: theme.palette.text.primary }}>
-          Contact
-        </Link>
-        <Link
-          href="https://github.com"
-          target="_blank"
-          underline="none"
-          sx={{ color: theme.palette.text.primary }}
-        >
-          GitHub
-        </Link>
-        <Link href="/privacy" underline="none" sx={{ color: theme.palette.text.primary }}>
-          Privacy
-        </Link>
-        <Link href="/disclaimer" underline="none" sx={{ color: theme.palette.text.primary }}>
-          Disclaimer
-        </Link>
-      </Box>
-
+      <HStack>
+        <ChakraImage asChild>
+          <Image src="/static/images/logo.png" alt="WCA Logo" height={50} width={50} />
+        </ChakraImage>
+        <ChakraLink asChild>
+          <Link href="/about">About Us</Link>
+        </ChakraLink>
+        <ChakraLink asChild>
+          <Link href="/faqs">FAQs</Link>
+        </ChakraLink>
+        <ChakraLink asChild>
+          <Link href="/contact">Contact</Link>
+        </ChakraLink>
+        <ChakraLink asChild>
+          <Link
+            href="https://github.com"
+            target="_blank"
+          >
+            GitHub
+          </Link>
+        </ChakraLink>
+        <ChakraLink asChild>
+          <Link href="/privacy">Privacy</Link>
+        </ChakraLink>
+        <ChakraLink asChild>
+          <Link href="/disclaimer">Disclaimer</Link>
+        </ChakraLink>
+      </HStack>
     </Box>
   );
 }

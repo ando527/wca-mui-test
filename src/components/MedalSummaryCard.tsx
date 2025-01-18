@@ -1,23 +1,22 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import {Box, Heading, StatValueText} from "@chakra-ui/react";
+import {StatLabel, StatRoot, StatValueUnit} from "@/components/ui/stat";
 
 const MedalSummaryCard: React.FC = () => {
   return (
     <Box
-      sx={{
-        backgroundColor: '#FFD313',
-        color: '#000000',
-        padding: '20px',
-        borderRadius: '10px',
-        boxShadow: 2,
-        textAlign: 'center',
-      }}
-       id="medal-summary-card"
+      bg="#FFD313"
+      rounded="md"
+      id="medal-summary-card"
     >
-      <Typography variant="h6">Medal Collection</Typography>
-      <Typography variant="body1">
-        4 Gold <br /> 11 Silver <br /> 5 Bronze
-      </Typography>
+      <StatRoot>
+        <StatLabel>Medal Collection</StatLabel>
+        <StatValueText>
+          4 <StatValueUnit>Gold</StatValueUnit>
+          11 <StatValueUnit>Silver</StatValueUnit>
+          5 <StatValueUnit>Bronze</StatValueUnit>
+        </StatValueText>
+      </StatRoot>
     </Box>
   );
 };

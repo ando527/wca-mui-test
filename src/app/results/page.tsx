@@ -1,41 +1,37 @@
 'use client'
 import * as React from 'react';
-import { Box, Grid } from '@mui/material';
 import ProfileCard from '@/components/ProfileCard';
 import PersonalRecordsTable from '@/components/PersonalRecordsTable';
 import MedalSummaryCard from '@/components/MedalSummaryCard';
 import RecordSummaryCard from '@/components/RecordSummaryCard';
 import TabsComponent from '@/components/Tabs';
-
-
+import { GridItem, SimpleGrid } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Box sx={{ padding: '20px' }}>
-      <Grid container spacing={3}>
+      <SimpleGrid gap={3} columns={6}>
         {/* Profile Section */}
-        <Grid item xs={12} md={4}>
+        <GridItem colSpan={2}>
           <ProfileCard />
-        </Grid>
+        </GridItem>
 
         {/* Records and Medals */}
-        <Grid item xs={12} md={8}>
+        <GridItem colSpan={4}>
           <PersonalRecordsTable />
-        </Grid>
+        </GridItem>
 
         {/* Medal and Record Summary */}
-        <Grid item xs={12} md={6}>
+        <GridItem colSpan={3}>
           <MedalSummaryCard />
-        </Grid>
-        <Grid item xs={12} md={6}>
+        </GridItem>
+        <GridItem colSpan={3}>
           <RecordSummaryCard />
-        </Grid>
+        </GridItem>
 
         {/* Tabs */}
-        <Grid item xs={12}>
+        <GridItem colSpan={6}>
           <TabsComponent />
-        </Grid>
-      </Grid>
-    </Box>
+        </GridItem>
+      </SimpleGrid>
   );
 }

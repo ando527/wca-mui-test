@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import {Box, Heading, Table} from "@chakra-ui/react";
 
 const ResultsTab: React.FC = () => {
   const results = [
@@ -10,27 +10,25 @@ const ResultsTab: React.FC = () => {
 
   return (
     <Box>
-      <Typography variant="h6" gutterBottom>
-        Results
-      </Typography>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Event</TableCell>
-            <TableCell>Result</TableCell>
-            <TableCell>Competition</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+      <Heading>Results</Heading>
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
+            <Table.ColumnHeader>Event</Table.ColumnHeader>
+            <Table.ColumnHeader>Result</Table.ColumnHeader>
+            <Table.ColumnHeader>Competition</Table.ColumnHeader>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
           {results.map((result, index) => (
-            <TableRow key={index}>
-              <TableCell>{result.event}</TableCell>
-              <TableCell>{result.result}</TableCell>
-              <TableCell>{result.competition}</TableCell>
-            </TableRow>
+            <Table.Row key={index}>
+              <Table.Cell>{result.event}</Table.Cell>
+              <Table.Cell>{result.result}</Table.Cell>
+              <Table.Cell>{result.competition}</Table.Cell>
+            </Table.Row>
           ))}
-        </TableBody>
-      </Table>
+        </Table.Body>
+      </Table.Root>
     </Box>
   );
 };

@@ -1,8 +1,5 @@
 import React from 'react';
-import { Box, Typography, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
-import { shadows } from '@mui/system';
-
-
+import {Box, Heading, Table} from "@chakra-ui/react";
 
 const PersonalRecordsTable: React.FC = () => {
   const records = [
@@ -12,42 +9,34 @@ const PersonalRecordsTable: React.FC = () => {
   ];
 
   return (
-    <Box sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'left',
-        padding: '20px',
-        borderRadius: '10px',
-        boxShadow: 2,
-        backgroundColor: '#fff',
-      }}>
-      <Typography variant="h6" gutterBottom>
+    <Box>
+      <Heading>
         Current Personal Records
-      </Typography>
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Event</TableCell>
-            <TableCell>NR</TableCell>
-            <TableCell>CR</TableCell>
-            <TableCell>WR</TableCell>
-            <TableCell>Single</TableCell>
-            <TableCell>Average</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+      </Heading>
+      <Table.Root>
+        <Table.Header>
+          <Table.Row>
+            <Table.ColumnHeader>Event</Table.ColumnHeader>
+            <Table.ColumnHeader>NR</Table.ColumnHeader>
+            <Table.ColumnHeader>CR</Table.ColumnHeader>
+            <Table.ColumnHeader>WR</Table.ColumnHeader>
+            <Table.ColumnHeader>Single</Table.ColumnHeader>
+            <Table.ColumnHeader>Average</Table.ColumnHeader>
+          </Table.Row>
+        </Table.Header>
+        <Table.Body>
           {records.map((record, index) => (
-            <TableRow key={index}>
-              <TableCell>{record.event}</TableCell>
-              <TableCell>{record.nr}</TableCell>
-              <TableCell>{record.cr}</TableCell>
-              <TableCell>{record.wr}</TableCell>
-              <TableCell>{record.single}</TableCell>
-              <TableCell>{record.average}</TableCell>
-            </TableRow>
+            <Table.Row key={index}>
+              <Table.Cell>{record.event}</Table.Cell>
+              <Table.Cell>{record.nr}</Table.Cell>
+              <Table.Cell>{record.cr}</Table.Cell>
+              <Table.Cell>{record.wr}</Table.Cell>
+              <Table.Cell>{record.single}</Table.Cell>
+              <Table.Cell>{record.average}</Table.Cell>
+            </Table.Row>
           ))}
-        </TableBody>
-      </Table>
+        </Table.Body>
+      </Table.Root>
     </Box>
   );
 };

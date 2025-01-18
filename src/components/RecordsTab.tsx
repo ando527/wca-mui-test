@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
+import {Box, Card, Heading, Stack} from "@chakra-ui/react";
 
 const RecordsTab: React.FC = () => {
   const records = [
@@ -9,18 +9,21 @@ const RecordsTab: React.FC = () => {
   ];
 
   return (
-    <Box>
-      <Typography variant="h6" gutterBottom>
-        Records
-      </Typography>
-      <List>
+    <>
+      <Heading>Records</Heading>
+      <Stack>
         {records.map((record, index) => (
-          <ListItem key={index}>
-            <ListItemText primary={record.event} secondary={record.record} />
-          </ListItem>
+          <Card.Root key={index}>
+            <Card.Body>
+              {record.event}
+            </Card.Body>
+            <Card.Footer>
+              {record.record}
+            </Card.Footer>
+          </Card.Root>
         ))}
-      </List>
-    </Box>
+      </Stack>
+    </>
   );
 };
 

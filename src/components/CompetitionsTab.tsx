@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, List, ListItem, ListItemText } from '@mui/material';
+import {Card, Heading, Stack} from "@chakra-ui/react";
 
 const CompetitionsTab: React.FC = () => {
   const competitions = [
@@ -9,21 +9,21 @@ const CompetitionsTab: React.FC = () => {
   ];
 
   return (
-    <Box>
-      <Typography variant="h6" gutterBottom>
-        Competitions
-      </Typography>
-      <List>
+    <>
+      <Heading>Competitions</Heading>
+      <Stack>
         {competitions.map((competition, index) => (
-          <ListItem key={index}>
-            <ListItemText
-              primary={competition.name}
-              secondary={`${competition.location} - ${competition.date}`}
-            />
-          </ListItem>
+          <Card.Root key={index}>
+            <Card.Body>
+              competition.name
+            </Card.Body>
+            <Card.Footer>
+              `${competition.location} - ${competition.date}`
+            </Card.Footer>
+          </Card.Root>
         ))}
-      </List>
-    </Box>
+      </Stack>
+    </>
   );
 };
 
