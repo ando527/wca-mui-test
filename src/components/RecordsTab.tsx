@@ -15,11 +15,13 @@ const RecordsTab: React.FC = () => {
         {records.map((record, index) => (
           <Card.Root key={index}>
             <Card.Body>
-              {record.event}
+              <Card.Title>
+                {record.event}
+              </Card.Title>
+              <Card.Description>
+                {record.record}
+              </Card.Description>
             </Card.Body>
-            <Card.Footer>
-              {record.record}
-            </Card.Footer>
           </Card.Root>
         ))}
       </Stack>

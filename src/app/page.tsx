@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { Center, Heading } from "@chakra-ui/react";
+import {Center, Heading} from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <Center maxWidth="lg">
-        <Heading size="2xl">
-          ChakraUI test for WCA
-        </Heading>
+    <Center>
+      <Heading size="4xl">
+        ChakraUI test for WCA
+      </Heading>
     </Center>
   );
 }

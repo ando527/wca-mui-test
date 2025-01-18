@@ -3,12 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {Box, Center, Link as ChakraLink, Image as ChakraImage, Input} from "@chakra-ui/react";
+import {Box, Center, Link as ChakraLink, Image as ChakraImage, Input, VStack, HStack, Group} from "@chakra-ui/react";
 import {MenuContent, MenuItem, MenuRoot, MenuTrigger} from "@/components/ui/menu";
 import {Button} from "@/components/ui/button";
-import {LuCalendar1, LuChartNoAxesColumn, LuCircleHelp, LuGavel, LuGlobe, LuUser} from "react-icons/lu";
+import {LuCalendar1, LuChartNoAxesColumn, LuCircleHelp, LuGavel, LuGlobe, LuSearch, LuUser} from "react-icons/lu";
 import {ColorModeButton} from "@/components/ui/color-mode";
 import {Avatar} from "@/components/ui/avatar";
+import {InputGroup} from "@/components/ui/input-group";
 
 export default function Navbar() {
   const createDropdown = (
@@ -17,7 +18,7 @@ export default function Navbar() {
   ) => (
     <MenuRoot>
       <MenuTrigger asChild>
-        <Button aria-haspopup="true">
+        <Button variant="outline">
           {label}
         </Button>
       </MenuTrigger>
@@ -37,23 +38,21 @@ export default function Navbar() {
   );
 
   return (
-    <Box color="default">
-      <Center>
-        {/* Left Section: Logo + Menu Items */}
-        <Box>
-          {/* Logo */}
-          <Center>
-            <ChakraLink asChild>
-              <Link href={'/'} passHref>
-                <ChakraImage asChild>
-                  <Image src="/static/images/logo.png" alt="Logo" width={40} height={40} />
-                </ChakraImage>
-              </Link>
-            </ChakraLink>
-          </Center>
+    <HStack justify="space-between">
+      {/* Left Section: Logo + Menu Items */}
+      <HStack>
+        {/* Logo */}
+        <ChakraLink asChild>
+          <Link href={'/'} passHref>
+            <ChakraImage asChild>
+              <Image src="/static/images/logo.png" alt="Logo" width={40} height={40} />
+            </ChakraImage>
+          </Link>
+        </ChakraLink>
 
+        <Group>
           {/* Menu Items */}
-          <Button>About Us</Button>
+          <Button variant="outline">About Us</Button>
           {createDropdown("Competitions", [
             { name: "All", icon: <LuCalendar1 />, href: "#"},
             { name: "My Competitions", icon: <LuCalendar1 /> , href: "#"},
@@ -98,46 +97,48 @@ export default function Navbar() {
             { name: "Tools", icon: <LuCircleHelp /> , href: "#"},
             { name: "Logo", icon: <LuCircleHelp /> , href: "#"},
           ])}
-          <Button variant="solid" color="primary">WCA Live</Button>
-        </Box>
+          <Button variant="outline">WCA Live</Button>
+        </Group>
+      </HStack>
 
-        {/* Right Section: Search and Avatar */}
-        <Center>
+      {/* Right Section: Search and Avatar */}
+      <HStack>
+        <InputGroup startElement={<LuSearch />}>
           <Input placeholder="Search site" />
-          <ColorModeButton />
-          <Button>
-            <LuGlobe /> English
-          </Button>
-          {/* Avatar with Profile Menu */}
-          <MenuRoot>
-            <MenuTrigger>
-              <Avatar name="Mitchell Anderson" src="/static/images/avatar/1.jpg" />
-            </MenuTrigger>
-            <MenuContent>
-              {[
-                { name: "Name", icon: <LuUser /> },
-                { name: "Notifications", icon: <LuUser /> },
-                { name: "Edit profile", icon: <LuUser /> },
-                { name: "My Competitions", icon: <LuCalendar1 /> },
-                { name: "My Results", icon: <LuChartNoAxesColumn /> },
-                { name: "Staff panel", icon: <LuUser /> },
-                { name: "Delegate panel", icon: <LuUser /> },
-                { name: "Polls", icon: <LuUser /> },
-                { name: "Manage users", icon: <LuUser /> },
-                { name: "New Competition", icon: <LuChartNoAxesColumn /> },
-                { name: "Manage your applications", icon: <LuUser /> },
-                { name: "Manage authorized applications", icon: <LuUser /> },
-                { name: "Sign out", icon: <LuUser /> },
-              ].map((item) => (
-                  <MenuItem key={item.name} value={item.name}>
-                    {item.icon}
-                    {item.name}
-                  </MenuItem>
-              ))}
-            </MenuContent>
-          </MenuRoot>
-        </Center>
-      </Center>
-    </Box>
+        </InputGroup>
+        <ColorModeButton variant="outline" />
+        <Button variant="outline">
+          <LuGlobe /> English
+        </Button>
+        {/* Avatar with Profile Menu */}
+        <MenuRoot>
+          <MenuTrigger>
+            <Avatar name="Mitchell Anderson" src="/static/images/avatar/1.jpg" />
+          </MenuTrigger>
+          <MenuContent>
+            {[
+              { name: "Name", icon: <LuUser /> },
+              { name: "Notifications", icon: <LuUser /> },
+              { name: "Edit profile", icon: <LuUser /> },
+              { name: "My Competitions", icon: <LuCalendar1 /> },
+              { name: "My Results", icon: <LuChartNoAxesColumn /> },
+              { name: "Staff panel", icon: <LuUser /> },
+              { name: "Delegate panel", icon: <LuUser /> },
+              { name: "Polls", icon: <LuUser /> },
+              { name: "Manage users", icon: <LuUser /> },
+              { name: "New Competition", icon: <LuChartNoAxesColumn /> },
+              { name: "Manage your applications", icon: <LuUser /> },
+              { name: "Manage authorized applications", icon: <LuUser /> },
+              { name: "Sign out", icon: <LuUser /> },
+            ].map((item) => (
+                <MenuItem key={item.name} value={item.name}>
+                  {item.icon}
+                  {item.name}
+                </MenuItem>
+            ))}
+          </MenuContent>
+        </MenuRoot>
+      </HStack>
+    </HStack>
   );
 }

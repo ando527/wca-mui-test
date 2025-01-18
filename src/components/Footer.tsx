@@ -1,24 +1,31 @@
 'use client'
 
 import React from "react";
-import {Box, Center, HStack, IconButton, Link as ChakraLink, Image as ChakraImage} from "@chakra-ui/react";
+import {
+  Center,
+  HStack,
+  IconButton,
+  Link as ChakraLink,
+  Image as ChakraImage,
+  VStack
+} from "@chakra-ui/react";
 import {LuFacebook, LuGithub, LuInstagram, LuTwitter, LuYoutube} from "react-icons/lu";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function Footer() {
   return (
-    <Box>
-      {/* Social Media Icons */}
-      <Center>
+    <Center>
+      <VStack>
+        {/* Social Media Icons */}
         <HStack>
           <ChakraLink asChild>
             <Link
-              href="https://instagram.com"
-              target="_blank"
+                href="https://instagram.com"
+                target="_blank"
             >
               <IconButton variant="ghost">
-                <LuInstagram />
+                <LuInstagram/>
               </IconButton>
             </Link>
           </ChakraLink>
@@ -28,7 +35,7 @@ export default function Footer() {
                 target="_blank"
             >
               <IconButton variant="ghost">
-                <LuFacebook />
+                <LuFacebook/>
               </IconButton>
             </Link>
           </ChakraLink>
@@ -38,7 +45,7 @@ export default function Footer() {
                 target="_blank"
             >
               <IconButton variant="ghost">
-                <LuTwitter />
+                <LuTwitter/>
               </IconButton>
             </Link>
           </ChakraLink>
@@ -48,7 +55,7 @@ export default function Footer() {
                 target="_blank"
             >
               <IconButton variant="ghost">
-                <LuGithub />
+                <LuGithub/>
               </IconButton>
             </Link>
           </ChakraLink>
@@ -58,42 +65,43 @@ export default function Footer() {
                 target="_blank"
             >
               <IconButton variant="ghost">
-                <LuYoutube />
+                <LuYoutube/>
               </IconButton>
             </Link>
           </ChakraLink>
         </HStack>
-      </Center>
 
-      {/* Footer Links */}
-      <HStack>
-        <ChakraImage asChild>
-          <Image src="/static/images/logo.png" alt="WCA Logo" height={50} width={50} />
-        </ChakraImage>
-        <ChakraLink asChild>
-          <Link href="/about">About Us</Link>
-        </ChakraLink>
-        <ChakraLink asChild>
-          <Link href="/faqs">FAQs</Link>
-        </ChakraLink>
-        <ChakraLink asChild>
-          <Link href="/contact">Contact</Link>
-        </ChakraLink>
-        <ChakraLink asChild>
-          <Link
-            href="https://github.com"
-            target="_blank"
-          >
-            GitHub
-          </Link>
-        </ChakraLink>
-        <ChakraLink asChild>
-          <Link href="/privacy">Privacy</Link>
-        </ChakraLink>
-        <ChakraLink asChild>
-          <Link href="/disclaimer">Disclaimer</Link>
-        </ChakraLink>
-      </HStack>
-    </Box>
+        {/* Footer Links */}
+        <HStack>
+          <ChakraImage asChild>
+            <Image src="/static/images/logo.png" alt="WCA Logo" height={50} width={50}/>
+          </ChakraImage>
+          <ChakraLink asChild>
+            <Link href="/about">About Us</Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link href="/faqs">FAQs</Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link href="/contact">Contact</Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link
+              href="https://github.com"
+              target="_blank"
+            >
+              GitHub
+            </Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link href="/privacy">Privacy</Link>
+          </ChakraLink>
+          <ChakraLink asChild>
+            <Link href="/disclaimer">Disclaimer</Link>
+          </ChakraLink>
+        </HStack>
+      </VStack>
+
+    </Center>
   );
 }

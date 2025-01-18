@@ -1,13 +1,17 @@
 import React from 'react';
-import {Badge, Box, Card, Text, VStack, Image as ChakraImage} from "@chakra-ui/react";
+import {Badge, Card, Center, VStack} from "@chakra-ui/react";
 import {Avatar} from "@/components/ui/avatar";
 import {DataListItem, DataListRoot} from "@/components/ui/data-list";
 
 const ProfileCard: React.FC = () => {
   return (
     <Card.Root>
-      {/* Profile Picture */}
-      <Avatar src="/static/images/ma.jpg" size="2xl" />
+      <Card.Header>
+        <Center>
+          {/* Profile Picture */}
+          <Avatar src="/static/images/ma.jpg" size="2xl" />
+        </Center>
+      </Card.Header>
 
       <Card.Body>
         <Card.Title>
@@ -17,15 +21,13 @@ const ProfileCard: React.FC = () => {
             <Badge color="error">Junior Delegate</Badge>
           </VStack>
         </Card.Title>
-        <Card.Description>
-          <DataListRoot orientation="horizontal">
-            <DataListItem label="WCA ID" value="2022ANDE01" />
-            <DataListItem label="Gender" value="Male" />
-            <DataListItem label="Region" value="Australia" />
-            <DataListItem label="Competitions" value="48" />
-            <DataListItem label="Completed Solves" value="1659" />
-          </DataListRoot>
-        </Card.Description>
+        <DataListRoot orientation="horizontal">
+          <DataListItem label="WCA ID" value="2022ANDE01" />
+          <DataListItem label="Gender" value="Male" />
+          <DataListItem label="Region" value="Australia" />
+          <DataListItem label="Competitions" value="48" />
+          <DataListItem label="Completed Solves" value="1659" />
+        </DataListRoot>
       </Card.Body>
     </Card.Root>
   );

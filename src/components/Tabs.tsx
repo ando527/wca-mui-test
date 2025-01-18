@@ -5,11 +5,11 @@ import CompetitionsTab from './CompetitionsTab';
 import RecordsTab from './RecordsTab';
 import ChampionshipPodiumsTab from './ChampionshipPodiumsTab';
 import MapTab from './MapTab';
-import {Box, Tabs} from "@chakra-ui/react";
+import {Tabs} from "@chakra-ui/react";
 
 const TabsComponent: React.FC = () => {
   return (
-    <Tabs.Root>
+    <Tabs.Root defaultValue="results">
       <Tabs.List>
         <Tabs.Trigger value="results">Results</Tabs.Trigger>
         <Tabs.Trigger value="competitions">Competitions</Tabs.Trigger>

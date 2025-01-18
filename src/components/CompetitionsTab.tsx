@@ -15,11 +15,13 @@ const CompetitionsTab: React.FC = () => {
         {competitions.map((competition, index) => (
           <Card.Root key={index}>
             <Card.Body>
-              competition.name
+              <Card.Title>
+                {competition.name}
+              </Card.Title>
+              <Card.Description>
+                {competition.location} - {competition.date}
+              </Card.Description>
             </Card.Body>
-            <Card.Footer>
-              `${competition.location} - ${competition.date}`
-            </Card.Footer>
           </Card.Root>
         ))}
       </Stack>
