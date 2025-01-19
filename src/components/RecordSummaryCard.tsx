@@ -1,24 +1,21 @@
 import React from 'react';
-import {Box, Center, StatValueText} from "@chakra-ui/react";
+import {Box, Card, Center, StatValueText} from "@chakra-ui/react";
 import {StatLabel, StatRoot, StatValueUnit} from "@/components/ui/stat";
 
 const RecordSummaryCard: React.FC = () => {
   return (
-    <Box
-      bg="#029347"
-      rounded="md"
-    >
-      <Center>
-        <StatRoot maxW="lg">
-          <StatLabel>Record Collection</StatLabel>
+    <Card.Root bg="green.muted">
+      <Card.Body>
+        <Card.Title>Record Collection</Card.Title>
+        <StatRoot size="lg">
           <StatValueText alignItems="baseline">
             4 <StatValueUnit>World</StatValueUnit>
             11 <StatValueUnit>Continental</StatValueUnit>
             5 <StatValueUnit>National</StatValueUnit>
           </StatValueText>
         </StatRoot>
-      </Center>
-    </Box>
+      </Card.Body>
+    </Card.Root>
   );
 };
 

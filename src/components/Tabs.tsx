@@ -9,7 +9,7 @@ import {Tabs} from "@chakra-ui/react";
 
 const TabsComponent: React.FC = () => {
   return (
-    <Tabs.Root defaultValue="results">
+    <Tabs.Root defaultValue="results" fitted>
       <Tabs.List>
         <Tabs.Trigger value="results">Results</Tabs.Trigger>
         <Tabs.Trigger value="competitions">Competitions</Tabs.Trigger>

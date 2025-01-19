@@ -1,11 +1,11 @@
 import React from 'react';
-import {Badge, Card, Center, VStack} from "@chakra-ui/react";
+import {Badge, Card, Center, HStack, VStack} from "@chakra-ui/react";
 import {Avatar} from "@/components/ui/avatar";
 import {DataListItem, DataListRoot} from "@/components/ui/data-list";
 
 const ProfileCard: React.FC = () => {
   return (
-    <Card.Root>
+    <Card.Root bg="bg.inverted" color="fg.inverted">
       <Card.Header>
         <Center>
           {/* Profile Picture */}
@@ -14,12 +14,12 @@ const ProfileCard: React.FC = () => {
       </Card.Header>
 
       <Card.Body>
-        <Card.Title>
+        <Card.Title marginBottom={2}>
           Mitchell Anderson
-          <VStack>
-            <Badge color="success">WST Member</Badge>
-            <Badge color="error">Junior Delegate</Badge>
-          </VStack>
+          <HStack>
+            <Badge bg="green.emphasized" rounded="full">WST Member</Badge>
+            <Badge bg="red.emphasized" rounded="full">Junior Delegate</Badge>
+          </HStack>
         </Card.Title>
         <DataListRoot orientation="horizontal">
           <DataListItem label="WCA ID" value="2022ANDE01" />

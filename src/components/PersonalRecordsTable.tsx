@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Heading, Table} from "@chakra-ui/react";
+import {Card, Table} from "@chakra-ui/react";
 
 const PersonalRecordsTable: React.FC = () => {
   const records = [
@@ -9,35 +9,36 @@ const PersonalRecordsTable: React.FC = () => {
   ];
 
   return (
-    <Box>
-      <Heading>
-        Current Personal Records
-      </Heading>
-      <Table.Root>
-        <Table.Header>
-          <Table.Row>
-            <Table.ColumnHeader>Event</Table.ColumnHeader>
-            <Table.ColumnHeader>NR</Table.ColumnHeader>
-            <Table.ColumnHeader>CR</Table.ColumnHeader>
-            <Table.ColumnHeader>WR</Table.ColumnHeader>
-            <Table.ColumnHeader>Single</Table.ColumnHeader>
-            <Table.ColumnHeader>Average</Table.ColumnHeader>
-          </Table.Row>
-        </Table.Header>
-        <Table.Body>
-          {records.map((record, index) => (
-            <Table.Row key={index}>
-              <Table.Cell>{record.event}</Table.Cell>
-              <Table.Cell>{record.nr}</Table.Cell>
-              <Table.Cell>{record.cr}</Table.Cell>
-              <Table.Cell>{record.wr}</Table.Cell>
-              <Table.Cell>{record.single}</Table.Cell>
-              <Table.Cell>{record.average}</Table.Cell>
+    <Card.Root bg="bg.inverted" color="fg.inverted">
+      <Card.Body>
+        <Card.Title>Current Personal Records</Card.Title>
+        {/* Tables don't seem to inherit styles correctly, normally all the extra bg and fg shouldn't be necessary */}
+        <Table.Root interactive>
+          <Table.Header>
+            <Table.Row bg="bg.inverted">
+              <Table.ColumnHeader color="fg.inverted">Event</Table.ColumnHeader>
+              <Table.ColumnHeader color="fg.inverted">NR</Table.ColumnHeader>
+              <Table.ColumnHeader color="fg.inverted">CR</Table.ColumnHeader>
+              <Table.ColumnHeader color="fg.inverted">WR</Table.ColumnHeader>
+              <Table.ColumnHeader color="fg.inverted">Single</Table.ColumnHeader>
+              <Table.ColumnHeader color="fg.inverted">Average</Table.ColumnHeader>
             </Table.Row>
-          ))}
-        </Table.Body>
-      </Table.Root>
-    </Box>
+          </Table.Header>
+          <Table.Body>
+            {records.map((record, index) => (
+                <Table.Row key={index} bg="bg.inverted">
+                  <Table.Cell color="fg.inverted">{record.event}</Table.Cell>
+                  <Table.Cell color="fg.inverted">{record.nr}</Table.Cell>
+                  <Table.Cell color="fg.inverted">{record.cr}</Table.Cell>
+                  <Table.Cell color="fg.inverted">{record.wr}</Table.Cell>
+                  <Table.Cell color="fg.inverted">{record.single}</Table.Cell>
+                  <Table.Cell color="fg.inverted">{record.average}</Table.Cell>
+                </Table.Row>
+            ))}
+          </Table.Body>
+        </Table.Root>
+      </Card.Body>
+    </Card.Root>
   );
 };
 

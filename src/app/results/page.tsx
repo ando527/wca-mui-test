@@ -9,7 +9,7 @@ import { GridItem, SimpleGrid } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-      <SimpleGrid gap={3} columns={6}>
+      <SimpleGrid gap={5} columns={6} padding={5}>
         {/* Profile Section */}
         <GridItem colSpan={2}>
           <ProfileCard />
