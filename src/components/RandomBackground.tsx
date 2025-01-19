@@ -16,7 +16,7 @@ const RandomBackground = ({ numRows, numCols, density = 3, bias = 3 }: { numRows
     <Box
       position="fixed"
       right={0}
-      zIndex={-1} // Places it underneath other elements
+      zIndex="hide" // Places it underneath other elements
       pointerEvents="none" // Prevents interaction with the grid
     >
       <SimpleGrid columns={numCols}>

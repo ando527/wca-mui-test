@@ -18,7 +18,7 @@ export default function Navbar() {
   ) => (
     <MenuRoot>
       <MenuTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" textTransform="uppercase">
           {label}
         </Button>
       </MenuTrigger>
@@ -38,7 +38,7 @@ export default function Navbar() {
   );
 
   return (
-    <HStack justify="space-between">
+    <HStack justify="space-between" padding={5} borderBottomWidth={3} bg="bg.muted">
       {/* Left Section: Logo + Menu Items */}
       <HStack>
         {/* Logo */}
@@ -52,7 +52,7 @@ export default function Navbar() {
 
         <Group>
           {/* Menu Items */}
-          <Button variant="outline">About Us</Button>
+          <Button variant="outline" textTransform="uppercase">About Us</Button>
           {createDropdown("Competitions", [
             { name: "All", icon: <LuCalendar1 />, href: "#"},
             { name: "My Competitions", icon: <LuCalendar1 /> , href: "#"},
@@ -97,7 +97,7 @@ export default function Navbar() {
             { name: "Tools", icon: <LuCircleHelp /> , href: "#"},
             { name: "Logo", icon: <LuCircleHelp /> , href: "#"},
           ])}
-          <Button variant="outline">WCA Live</Button>
+          <Button variant="outline" textTransform="uppercase">WCA Live</Button>
         </Group>
       </HStack>
 
@@ -107,7 +107,7 @@ export default function Navbar() {
           <Input placeholder="Search site" />
         </InputGroup>
         <ColorModeButton variant="outline" />
-        <Button variant="outline">
+        <Button variant="ghost">
           <LuGlobe /> English
         </Button>
         {/* Avatar with Profile Menu */}

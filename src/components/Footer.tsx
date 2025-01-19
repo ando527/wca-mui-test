@@ -15,7 +15,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <Center>
+    <Center borderTopWidth={3} padding={3}>
       <VStack>
         {/* Social Media Icons */}
         <HStack>
@@ -72,7 +72,7 @@ export default function Footer() {
         </HStack>
 
         {/* Footer Links */}
-        <HStack>
+        <HStack gap={5}>
           <ChakraImage asChild>
             <Image src="/static/images/logo.png" alt="WCA Logo" height={50} width={50}/>
           </ChakraImage>
