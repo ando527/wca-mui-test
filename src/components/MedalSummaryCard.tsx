@@ -4,7 +4,7 @@ import {StatLabel, StatRoot, StatValueUnit} from "@/components/ui/stat";
 
 const MedalSummaryCard: React.FC = () => {
   return (
-    <Card.Root bg="yellow.muted">
+    <Card.Root bg="wcayellow.solid" color="wcayellow.contrast">
       <Card.Body>
         <Card.Title>Medal Collection</Card.Title>
         <StatRoot size="lg">

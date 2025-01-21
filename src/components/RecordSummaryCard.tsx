@@ -4,14 +4,14 @@ import {StatLabel, StatRoot, StatValueUnit} from "@/components/ui/stat";
 
 const RecordSummaryCard: React.FC = () => {
   return (
-    <Card.Root bg="green.muted">
+    <Card.Root bg="wcagreen.solid" color="wcagreen.contrast">
       <Card.Body>
         <Card.Title>Record Collection</Card.Title>
         <StatRoot size="lg">
           <StatValueText alignItems="baseline">
-            4 <StatValueUnit>World</StatValueUnit>
-            11 <StatValueUnit>Continental</StatValueUnit>
-            5 <StatValueUnit>National</StatValueUnit>
+            4 <StatValueUnit  color="wcagreen.contrast">World</StatValueUnit>
+            11 <StatValueUnit  color="wcagreen.contrast">Continental</StatValueUnit>
+            5 <StatValueUnit  color="wcagreen.contrast">National</StatValueUnit>
           </StatValueText>
         </StatRoot>
       </Card.Body>
