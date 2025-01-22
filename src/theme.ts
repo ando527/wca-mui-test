@@ -1,5 +1,7 @@
 import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
+import "leaflet/dist/leaflet.css";
+
 const customConfig = defineConfig({
   theme: {
     tokens: {
