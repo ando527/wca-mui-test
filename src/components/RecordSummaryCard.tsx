@@ -1,17 +1,35 @@
 import React from 'react';
-import {Box, Card, Center, StatValueText} from "@chakra-ui/react";
-import {StatLabel, StatRoot, StatValueUnit} from "@/components/ui/stat";
+import { Card } from "@chakra-ui/react";
+import { StatRoot, StatValueText, StatValueUnit } from "@/components/ui/stat";
 
-const RecordSummaryCard: React.FC = () => {
+interface RecordSummaryCardProps {
+  world: number;
+  continental: number;
+  national: number;
+}
+
+const RecordSummaryCard: React.FC<RecordSummaryCardProps> = ({ world, continental, national }) => {
   return (
     <Card.Root bg="wcagreen.solid" color="wcagreen.contrast">
       <Card.Body>
         <Card.Title>Record Collection</Card.Title>
         <StatRoot size="lg">
           <StatValueText alignItems="baseline">
-            4 <StatValueUnit  color="wcagreen.contrast">World</StatValueUnit>
-            11 <StatValueUnit  color="wcagreen.contrast">Continental</StatValueUnit>
-            5 <StatValueUnit  color="wcagreen.contrast">National</StatValueUnit>
+            {world > 0 && (
+              <>
+                {world} <StatValueUnit color="wcagreen.contrast">World</StatValueUnit>
+              </>
+            )}
+            {continental > 0 && (
+              <>
+                {continental} <StatValueUnit color="wcagreen.contrast">Continental</StatValueUnit>
+              </>
+            )}
+            {national > 0 && (
+              <>
+                {national} <StatValueUnit color="wcagreen.contrast">National</StatValueUnit>
+              </>
+            )}
           </StatValueText>
         </StatRoot>
       </Card.Body>

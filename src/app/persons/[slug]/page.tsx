@@ -134,6 +134,20 @@ export default async function Page({
 
   const data = await response.json();
 
+  // Fetch data from your API
+  const responseOpen = await fetch(`https://raw.githubusercontent.com/robiningelbrecht/wca-rest-api/master/api/persons/${slug}.json`, {
+    cache: 'no-store', // Ensures fresh data on every request
+  });
+  
+    // Handle fetch errors
+    if (!responseOpen.ok) {
+      return <div>Error: Unable to fetch data for {slug}</div>;
+    }
+  
+    const Opendata = await responseOpen.json();
+
+
+
   let roles: { teamRole: string; teamText: string; staffColor: string }[] = [];
 
   data.person.teams.forEach((team: { friendly_id: string; leader: boolean; senior_member: boolean; })=> {
@@ -177,7 +191,45 @@ if (data.person.delegate_status != null){
     return <div>No results found for {slug}</div>;
   }
 
+  let nationalRecords = 0;
+  let continentalRecords = 0;
+  let worldRecords = 0;
+
+  let hasRecords = false;
+  let hasMedals = false;
+
+  if (Opendata.records.single.NR){
+    nationalRecords += Opendata.records.single.NR;
+  }
+  if (Opendata.records.single.CR){
+    continentalRecords += Opendata.records.single.CR;
+  }
+  if (Opendata.records.single.WR){
+    worldRecords += Opendata.records.single.WR;
+  }
+
+  if (Opendata.records.average.NR){
+    nationalRecords += Opendata.records.single.NR;
+  }
+  if (Opendata.records.average.CR){
+    continentalRecords += Opendata.records.single.CR;
+  }
+  if (Opendata.records.average.WR){
+    worldRecords += Opendata.records.single.WR;
+  }
+
+  if (nationalRecords > 0 || continentalRecords > 0 || worldRecords > 0){
+    hasRecords = true;
+  }
+
+  if (Opendata.medals.gold > 0 || Opendata.medals.silver > 0 || Opendata.medals.bronze > 0){
+    hasMedals = true;
+  }
+
+  
+
   return (
+    
     <SimpleGrid gap={5} columns={12} padding={5}>
         {/* Profile Section */}
         <GridItem colSpan={3} h="80lvh">
@@ -197,17 +249,29 @@ if (data.person.delegate_status != null){
         <GridItem colSpan={9}>
           <PersonalRecordsTable records={transformPersonalRecords(data.personal_records)}/>
           <SimpleGrid gap={5} columns={6} padding={5}>
-            {/* Medal and Record Summary */}
-            <GridItem colSpan={3}>
-              <MedalSummaryCard />
+          {hasMedals && (
+            <GridItem colSpan={hasRecords ? 3 : 6}>
+              <MedalSummaryCard
+                gold={Opendata.medals.gold}
+                silver={Opendata.medals.silver}
+                bronze={Opendata.medals.bronze}
+              />
             </GridItem>
-            <GridItem colSpan={3}>
-              <RecordSummaryCard />
+          )}
+          {hasRecords && (
+            <GridItem colSpan={hasMedals ? 3 : 6}>
+              <RecordSummaryCard
+                world={worldRecords}
+                continental={continentalRecords}
+                national={nationalRecords}
+              />
             </GridItem>
+          )}
+            
 
             {/* Tabs */}
             <GridItem colSpan={6}>
-              <TabsComponent />
+              <TabsComponent data={Opendata} />
             </GridItem>
           </SimpleGrid>
 
