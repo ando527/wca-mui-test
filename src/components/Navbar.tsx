@@ -61,7 +61,7 @@ export default function Navbar() {
             { name: "Rankings", icon: <LuChartNoAxesColumn /> , href: "#"},
             { name: "Records", icon: <LuChartNoAxesColumn /> , href: "#"},
             { name: "Persons", icon: <LuUser />, href: "#" },
-            { name: "My Results", icon: <LuChartNoAxesColumn />, href: "/results" },
+            { name: "My Results", icon: <LuChartNoAxesColumn />, href: "/persons/2022ANDE01" },
             { name: "Statistics", icon: <LuChartNoAxesColumn />, href: "#" },
             { name: "Multimedia", icon: <LuChartNoAxesColumn />, href: "#" },
             { name: "Results Export", icon: <LuChartNoAxesColumn />, href: "#" },

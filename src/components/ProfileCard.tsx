@@ -1,32 +1,60 @@
 import React from 'react';
 import {Badge, Card, Center, HStack, VStack} from "@chakra-ui/react";
-import {Avatar} from "@/components/ui/avatar";
+import {Image} from "@chakra-ui/react";
 import {DataListItem, DataListRoot} from "@/components/ui/data-list";
+import RoleBadge from "@/components/RoleBadge";
 
-const ProfileCard: React.FC = () => {
+interface ProfileData {
+  name: string;
+  profilePicture: string;
+  roles: { teamRole: string; teamText: string; staffColor: string }[];
+  wcaId: string;
+  gender: string;
+  region: string;
+  competitions: number;
+  completedSolves: number;
+}
+
+
+const ProfileCard: React.FC<ProfileData> = ({
+  name,
+  profilePicture,
+  roles,
+  wcaId,
+  gender,
+  region,
+  competitions,
+  completedSolves,
+}) => {
   return (
-    <Card.Root bg="bg.inverted" color="fg.inverted">
+    <Card.Root bg="wcawhite.muted" color="wcawhite.contrast"  h="80lvh" rounded="md">
       <Card.Header>
         <Center>
           {/* Profile Picture */}
-          <Avatar src="/static/images/ma.jpg" size="2xl" />
+          <Image src={profilePicture} size="2xl" rounded="md" />
         </Center>
       </Card.Header>
 
       <Card.Body>
         <Card.Title marginBottom={2}>
-          Mitchell Anderson
+          {name}
           <HStack>
-            <Badge bg="green.emphasized" rounded="full">WST Member</Badge>
-            <Badge bg="red.emphasized" rounded="full">Junior Delegate</Badge>
+          {roles.map((role, index) => (
+              <RoleBadge
+                key={index}
+                teamRole={role.teamRole}
+                teamText={role.teamText}
+                staffColor={role.staffColor}
+              />
+            ))}
           </HStack>
         </Card.Title>
         <DataListRoot orientation="horizontal">
-          <DataListItem label="WCA ID" value="2022ANDE01" />
-          <DataListItem label="Gender" value="Male" />
-          <DataListItem label="Region" value="Australia" />
-          <DataListItem label="Competitions" value="48" />
-          <DataListItem label="Completed Solves" value="1659" />
+          <DataListItem label="WCA ID" value={wcaId} />
+          {gender !== "o" && <DataListItem label="Gender" value={gender} />}
+          <DataListItem label="Region" value={region} />
+          <DataListItem label="Competitions" value={competitions} />
+          <DataListItem label="Completed Solves" value={completedSolves} />
         </DataListRoot>
       </Card.Body>
     </Card.Root>

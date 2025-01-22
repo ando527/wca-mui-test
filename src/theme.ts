@@ -15,12 +15,12 @@ const customConfig = defineConfig({
           200: { value: "#1B4D3E" },
           300: { value: "#C1E6CD" },
         },
-        white: {
+        wcawhite: {
           50: { value: "#FFFFFF" }, // Pantone White
           100: { value: "#FCFCFC" },
-          200: { value: "#F4F1ED" },
-          300: { value: "#EDEDED" },
-          400: { value: "#DCDCDC" },
+          200: { value: "#3B3B3B" },
+          300: { value: "#E0DDD5" },
+          400: { value: "#F4F1ED" },
           500: { value: "#F9F9F9" },
         },
         red: {
@@ -70,6 +70,10 @@ const customConfig = defineConfig({
         danger: { value: "{colors.red.50}" },
         warning: { value: "{colors.yellow.50}" },
         success: { value: "{colors.green.100}" },
+        wcawhite: {
+          muted: { value: { _light: "{colors.wcawhite.400}", _dark: "{colors.wcawhite.200}" }, },
+          contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
+        },
         wcayellow: {
           solid: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.200" } },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
@@ -80,7 +84,7 @@ const customConfig = defineConfig({
           fg: { value: "{colors.green.200}" },
           muted: { value: "{colors.green.200}" },
           subtle: { value: "{colors.brand.200}" },
-          emphasized: { value: "{colors.brand.300}" },
+          emphasized: { value:  { _light: "colors.green.50", _dark: "colors.green.100" } },
           focusRing: { value: "{colors.brand.500}" },
         },
         bg: {
