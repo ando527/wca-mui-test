@@ -4,7 +4,10 @@ import {
   Tabs,
   Heading,
   Table,
+  
 } from "@chakra-ui/react";
+import Image from "next/image";
+
 
 interface ResultsTabProps {
   results: any; // Replace 'any' with a stricter type if needed
@@ -65,14 +68,14 @@ const ResultsTab: React.FC<ResultsTabProps> = ({ results }) => {
     });
 
     return (
-      <Table.Root >
+      <Table.Root size="sm">
         <Table.Header>
           <Table.Row >
             <Table.ColumnHeader >Competition</Table.ColumnHeader >
             <Table.ColumnHeader >Round</Table.ColumnHeader >
             <Table.ColumnHeader >Position</Table.ColumnHeader >
             <Table.ColumnHeader >Best</Table.ColumnHeader >
-            <Table.ColumnHeader >Average</Table.ColumnHeader >
+            {eventId !== "333mbf" && <Table.ColumnHeader >Average</Table.ColumnHeader >}
             <Table.ColumnHeader >Solves</Table.ColumnHeader >
           </Table.Row >
         </Table.Header>
@@ -83,7 +86,7 @@ const ResultsTab: React.FC<ResultsTabProps> = ({ results }) => {
               <Table.Cell>{result.round}</Table.Cell>
               <Table.Cell>{result.position}</Table.Cell>
               <Table.Cell>{formatTime(result.best, eventId === "333fm")}</Table.Cell>
-              <Table.Cell>{formatTime(result.average)}</Table.Cell>
+              {eventId !== "333mbf" && <Table.Cell>{formatTime(result.average)}</Table.Cell>}
               <Table.Cell>
                 {result.solves.map((solve: number, i: number) => (
                   <span key={i}>
@@ -105,7 +108,9 @@ const ResultsTab: React.FC<ResultsTabProps> = ({ results }) => {
       <Tabs.Root defaultValue="333">
         <Tabs.List>
           {orderedEvents.map((event) => (
-            <Tabs.Trigger value={event}>{event.toUpperCase()}</Tabs.Trigger>
+            <Tabs.Trigger value={event} key={event}>
+                <Image src={"/static/images/events/" + event + ".svg"} alt="Logo" width={25} height={25} />
+            </Tabs.Trigger>
           ))}
         </Tabs.List>
           {orderedEvents.map((event) => (

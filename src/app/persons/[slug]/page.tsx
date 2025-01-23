@@ -92,9 +92,9 @@ const transformPersonalRecords = (personalRecords: any): RecordItem[] => {
         event === "333mbf"
           ? decode333mbf(record.single.best)
           : formatResult(event, record.single.best),
-      snr: record.single.world_rank,
+      snr: record.single.country_rank,
       scr: record.single.continent_rank,
-      swr: record.single.country_rank,
+      swr: record.single.world_rank,
       average:
         record.average && record.average.best > 0
           ? formatResult(event, record.average.best)
@@ -248,7 +248,7 @@ if (data.person.delegate_status != null){
         {/* Records and Medals */}
         <GridItem colSpan={9}>
           <PersonalRecordsTable records={transformPersonalRecords(data.personal_records)}/>
-          <SimpleGrid gap={5} columns={6} padding={5}>
+          <SimpleGrid gap={5} columns={6} padding={0} pt={5}>
           {hasMedals && (
             <GridItem colSpan={hasRecords ? 3 : 6}>
               <MedalSummaryCard

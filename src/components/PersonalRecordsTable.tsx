@@ -1,7 +1,9 @@
 'use client'
 
 import React from 'react';
-import {Card, Table} from "@chakra-ui/react";
+import {Card, Table, Flex} from "@chakra-ui/react";
+import Image from 'next/image';
+import { Tooltip } from "@/components/ui/tooltip";
 
 
 
@@ -46,27 +48,27 @@ const PersonalRecordsTable: React.FC<RecordsProps> = ({ records }) => {
 
   return (
     <Card.Root bg="bg.inverted" color="fg.inverted">
-      <Card.Body>
-        <Card.Title>Current Personal Records</Card.Title>
+      <Card.Body p={0}>
+        <Card.Title p={5}>Current Personal Records</Card.Title>
         {/* Tables don't seem to inherit styles correctly, normally all the extra bg and fg shouldn't be necessary */}
-        <Table.Root interactive>
+        <Table.Root size="sm" striped>
           <Table.Header>
             <Table.Row bg="bg.inverted">
               <Table.ColumnHeader color="fg.inverted">Event</Table.ColumnHeader>
-              <Table.ColumnHeader color="fg.inverted" textAlign="right">NR</Table.ColumnHeader>
-              <Table.ColumnHeader color="fg.inverted" textAlign="right">CR</Table.ColumnHeader>
-              <Table.ColumnHeader color="fg.inverted" textAlign="right">WR</Table.ColumnHeader>
+              <Tooltip content="National Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted" textAlign="right">NR</Table.ColumnHeader></Tooltip>
+              <Tooltip content="Continental Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted" textAlign="right">CR</Table.ColumnHeader></Tooltip>
+              <Tooltip content="World Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted" textAlign="right">WR</Table.ColumnHeader></Tooltip>
               <Table.ColumnHeader color="fg.inverted" textAlign="right">Single</Table.ColumnHeader>
               <Table.ColumnHeader color="fg.inverted">Average</Table.ColumnHeader>
-              <Table.ColumnHeader color="fg.inverted">WR</Table.ColumnHeader>
-              <Table.ColumnHeader color="fg.inverted">CR</Table.ColumnHeader>
-              <Table.ColumnHeader color="fg.inverted">NR</Table.ColumnHeader>
+              <Tooltip content="World Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted">WR</Table.ColumnHeader></Tooltip>
+              <Tooltip content="Continental Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted">CR</Table.ColumnHeader></Tooltip>
+              <Tooltip content="National Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted">NR</Table.ColumnHeader></Tooltip>
             </Table.Row>  
           </Table.Header>
           <Table.Body>
             {records.map((record, index) => (
                 <Table.Row key={index} bg="bg.inverted">
-                  <Table.Cell color="fg.inverted">{eventMap[record.event]}</Table.Cell>
+                  <Table.Cell color="fg.inverted"><Flex direction="row"><Image src={"/static/images/events/" + record.event + ".svg"} alt="Logo" width={18} height={18} /> {eventMap[record.event]}</Flex></Table.Cell>
                   <Table.Cell color={record.snr < 11 ? "wcagreen.emphasized" : "fg.inverted" } fontWeight={record.snr < 11 ? "600" : "400"} textAlign="right">{record.snr}</Table.Cell>
                   <Table.Cell color={record.scr < 11 ? "wcagreen.emphasized" : "fg.inverted"} fontWeight={record.scr < 11 ? "600" : "400"} textAlign="right">{record.scr}</Table.Cell>
                   <Table.Cell color={record.swr < 11 ? "wcagreen.emphasized" : "fg.inverted"} fontWeight={record.swr < 11 ? "600" : "400"} textAlign="right">{record.swr}</Table.Cell>
