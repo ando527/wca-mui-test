@@ -108,7 +108,7 @@ const ResultsTab: React.FC<ResultsTabProps> = ({ results }) => {
         <Tabs.List>
           {orderedEvents.map((event) => (
             <Tabs.Trigger value={event} key={event}>
-              <Icon width={25} height={25}>
+              <Icon width={25} height={25} fontSize="2xl">
                 <i className={`cubing-icon event-${event}`} />
               </Icon>
             </Tabs.Trigger>

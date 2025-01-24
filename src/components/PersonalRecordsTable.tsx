@@ -69,7 +69,7 @@ const PersonalRecordsTable: React.FC<RecordsProps> = ({ records }) => {
                 <Table.Row key={index} bg="bg.inverted">
                   <Table.Cell color="fg.inverted">
                     <Flex direction="row">
-                      <Icon width={18} height={18}>
+                      <Icon width={18} height={18} fontSize="md">
                         <i className={`cubing-icon event-${record.event}`} />
                       </Icon>
                       {eventMap[record.event]}
