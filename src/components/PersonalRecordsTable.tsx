@@ -1,11 +1,10 @@
 'use client'
 
 import React from 'react';
-import {Card, Table, Flex} from "@chakra-ui/react";
-import Image from 'next/image';
+import {Card, Table, Flex, Icon} from "@chakra-ui/react";
 import { Tooltip } from "@/components/ui/tooltip";
 
-
+import "@cubing/icons/css";
 
 interface Record {
   event: string;
@@ -68,7 +67,14 @@ const PersonalRecordsTable: React.FC<RecordsProps> = ({ records }) => {
           <Table.Body>
             {records.map((record, index) => (
                 <Table.Row key={index} bg="bg.inverted">
-                  <Table.Cell color="fg.inverted"><Flex direction="row"><Image src={"/static/images/events/" + record.event + ".svg"} alt="Logo" width={18} height={18} /> {eventMap[record.event]}</Flex></Table.Cell>
+                  <Table.Cell color="fg.inverted">
+                    <Flex direction="row">
+                      <Icon width={18} height={18}>
+                        <i className={`cubing-icon event-${record.event}`} />
+                      </Icon>
+                      {eventMap[record.event]}
+                    </Flex>
+                  </Table.Cell>
                   <Table.Cell color={record.snr < 11 ? "wcagreen.emphasized" : "fg.inverted" } fontWeight={record.snr < 11 ? "600" : "400"} textAlign="right">{record.snr}</Table.Cell>
                   <Table.Cell color={record.scr < 11 ? "wcagreen.emphasized" : "fg.inverted"} fontWeight={record.scr < 11 ? "600" : "400"} textAlign="right">{record.scr}</Table.Cell>
                   <Table.Cell color={record.swr < 11 ? "wcagreen.emphasized" : "fg.inverted"} fontWeight={record.swr < 11 ? "600" : "400"} textAlign="right">{record.swr}</Table.Cell>
