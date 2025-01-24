@@ -6,6 +6,8 @@ import RecordSummaryCard from '@/components/RecordSummaryCard';
 import TabsComponent from '@/components/Tabs';
 import { GridItem, SimpleGrid } from "@chakra-ui/react";
 
+import StickyComponent from '@/components/StickyComponent';
+
 interface RecordItem {
   event: string;
   snr: number;
@@ -232,19 +234,18 @@ if (data.person.delegate_status != null){
     
     <SimpleGrid gap={5} columns={12} padding={5}>
         {/* Profile Section */}
-        <GridItem colSpan={3} h="80lvh">
-        <ProfileCard
-          name={data.person.name}
-          profilePicture={data.person.avatar.url}
-          roles={roles}
-          wcaId={slug}
-          gender={genderText}
-          region={data.person.country.name}
-          competitions={data.competition_count}
-          completedSolves={1659}
-        />
-        </GridItem>
-
+          <GridItem colSpan={3} h="80lvh">
+          <ProfileCard
+            name={data.person.name}
+            profilePicture={data.person.avatar.url}
+            roles={roles}
+            wcaId={slug}
+            gender={genderText}
+            region={data.person.country.name}
+            competitions={data.competition_count}
+            completedSolves={1659}
+          />
+          </GridItem>
         {/* Records and Medals */}
         <GridItem colSpan={9}>
           <PersonalRecordsTable records={transformPersonalRecords(data.personal_records)}/>
