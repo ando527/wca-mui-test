@@ -1,36 +1,32 @@
 import React from 'react';
-import { Box, Tabs, Tab } from '@mui/material';
 
 import ResultsTab from './ResultsTab';
 import CompetitionsTab from './CompetitionsTab';
 import RecordsTab from './RecordsTab';
 import ChampionshipPodiumsTab from './ChampionshipPodiumsTab';
 import MapTab from './MapTab';
+import {Tabs} from "@chakra-ui/react";
 
-const TabsComponent: React.FC = () => {
-  const [value, setValue] = React.useState(0);
+interface dataPropsIn {
+  data: any; // Replace 'any' with a stricter type if needed
+}
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-
+const TabsComponent: React.FC<dataPropsIn> = ({ data }) => {
   return (
-    <Box sx={{ width: '100%', marginTop: 3 }}>
-      <Tabs value={value} onChange={handleChange} centered>
-        <Tab label="Results" />
-        <Tab label="Competitions" />
-        <Tab label="Records" />
-        <Tab label="Championship Podiums" />
-        <Tab label="Map" />
-      </Tabs>
-      <Box sx={{ marginTop: 3 }}>
-        {value === 0 && <ResultsTab />}
-        {value === 1 && <CompetitionsTab />}
-        {value === 2 && <RecordsTab />}
-        {value === 3 && <ChampionshipPodiumsTab />}
-        {value === 4 && <MapTab />}
-      </Box>
-    </Box>
+    <Tabs.Root defaultValue="results" fitted>
+      <Tabs.List>
+        <Tabs.Trigger value="results">Results</Tabs.Trigger>
+        <Tabs.Trigger value="competitions">Competitions</Tabs.Trigger>
+        <Tabs.Trigger value="records">Records</Tabs.Trigger>
+        <Tabs.Trigger value="championship-podiums">Championship Podiums</Tabs.Trigger>
+        <Tabs.Trigger value="map">Map</Tabs.Trigger>
+      </Tabs.List>
+      <Tabs.Content value="results"><ResultsTab results={data.results} /></Tabs.Content>
+      <Tabs.Content value="competitions"><CompetitionsTab /></Tabs.Content>
+      <Tabs.Content value="records"><RecordsTab /></Tabs.Content>
+      <Tabs.Content value="championship-podiums"><ChampionshipPodiumsTab /></Tabs.Content>
+      <Tabs.Content value="map"><MapTab /></Tabs.Content>
+    </Tabs.Root>
   );
 };
 

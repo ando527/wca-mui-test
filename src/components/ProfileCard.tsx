@@ -1,42 +1,63 @@
 import React from 'react';
-import { Box, Typography, Avatar, Chip } from '@mui/material';
+import {Badge, Card, Center, HStack, VStack} from "@chakra-ui/react";
+import {Image} from "@chakra-ui/react";
+import {DataListItem, DataListRoot} from "@/components/ui/data-list";
+import RoleBadge from "@/components/RoleBadge";
 
-const ProfileCard: React.FC = () => {
+interface ProfileData {
+  name: string;
+  profilePicture: string;
+  roles: { teamRole: string; teamText: string; staffColor: string }[];
+  wcaId: string;
+  gender: string;
+  region: string;
+  competitions: number;
+  completedSolves: number;
+}
+
+
+const ProfileCard: React.FC<ProfileData> = ({
+  name,
+  profilePicture,
+  roles,
+  wcaId,
+  gender,
+  region,
+  competitions,
+  completedSolves,
+}) => {
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '20px',
-        borderRadius: '10px',
-        boxShadow: 2,
-        backgroundColor: '#fff',
-      }}
-    >
-      {/* Profile Picture */}
-      <Avatar
-        src="/static/images/ma.jpg"
-        alt="Mitchell Anderson"
-        sx={{ width: 150, height: 150, marginBottom: 2 }}
-      />
+    <Card.Root bg="wcawhite.muted" color="wcawhite.contrast"  h="85lvh" rounded="md" size="sm">
+      <Card.Header>
+        <Center>
+          {/* Profile Picture */}
+          <Image src={profilePicture} size="2xl" rounded="md" />
+        </Center>
+      </Card.Header>
 
-      {/* Name and Badges */}
-      <Typography variant="h5">Mitchell Anderson</Typography>
-      <Box sx={{ display: 'flex', gap: 1, marginTop: 1 }}>
-        <Chip label="WST Member" color="success" />
-        <Chip label="Junior Delegate" color="error" />
-      </Box>
-
-      {/* Additional Details */}
-      <Typography variant="body1" sx={{ marginTop: 2 }}>
-        WCA ID: 2022ANDE01
-      </Typography>
-      <Typography variant="body1">Gender: Male</Typography>
-      <Typography variant="body1">Region: Australia</Typography>
-      <Typography variant="body1">Competitions: 48</Typography>
-      <Typography variant="body1">Completed Solves: 1659</Typography>
-    </Box>
+      <Card.Body>
+        <Card.Title marginBottom={2}>
+          {name}
+          <HStack>
+          {roles.map((role, index) => (
+              <RoleBadge
+                key={index}
+                teamRole={role.teamRole}
+                teamText={role.teamText}
+                staffColor={role.staffColor}
+              />
+            ))}
+          </HStack>
+        </Card.Title>
+        <DataListRoot orientation="horizontal">
+          <DataListItem label="WCA ID" value={wcaId} />
+          {gender !== "o" && <DataListItem label="Gender" value={gender} />}
+          <DataListItem label="Region" value={region} />
+          <DataListItem label="Competitions" value={competitions} />
+          <DataListItem label="Completed Solves" value={completedSolves} />
+        </DataListRoot>
+      </Card.Body>
+    </Card.Root>
   );
 };
 

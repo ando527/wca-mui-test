@@ -1,224 +1,144 @@
 "use client";
 
 import React from "react";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import IconButton from "@mui/material/IconButton";
-import Avatar from "@mui/material/Avatar";
-import InputBase from "@mui/material/InputBase";
-import Box from "@mui/material/Box";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import { styled, alpha } from "@mui/material/styles";
-import Button from "@mui/material/Button";
-import SearchIcon from "@mui/icons-material/Search";
-import LanguageIcon from "@mui/icons-material/Language";
-import InfoIcon from "@mui/icons-material/Info";
-import EventIcon from "@mui/icons-material/Event";
-import LeaderboardIcon from "@mui/icons-material/Leaderboard";
-import GavelIcon from "@mui/icons-material/Gavel";
-import HelpIcon from "@mui/icons-material/Help";
-import PersonIcon from "@mui/icons-material/Person";
 import Link from "next/link";
-
-import ModeSwitch from '@/components/ModeSwitch';
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: theme.spacing(2),
-  width: "100%",
-  maxWidth: 400,
-  display: "flex",
-  alignItems: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  flex: 1,
-  paddingLeft: theme.spacing(1),
-}));
+import Image from "next/image";
+import {Box, Center, Link as ChakraLink, Image as ChakraImage, Input, VStack, HStack, Group} from "@chakra-ui/react";
+import {MenuContent, MenuItem, MenuRoot, MenuTrigger} from "@/components/ui/menu";
+import {Button} from "@/components/ui/button";
+import {LuCalendar1, LuChartNoAxesColumn, LuCircleHelp, LuGavel, LuGlobe, LuSearch, LuUser} from "react-icons/lu";
+import {ColorModeButton} from "@/components/ui/color-mode";
+import {Avatar} from "@/components/ui/avatar";
+import {InputGroup} from "@/components/ui/input-group";
 
 export default function Navbar() {
-  const [menuState, setMenuState] = React.useState<{
-    [key: string]: HTMLElement | null;
-  }>({});
-  const [avatarMenuAnchor, setAvatarMenuAnchor] = React.useState<null | HTMLElement>(null);
-
-  const handleMenuClick = (menuName: string) => (event: React.MouseEvent<HTMLElement>) => {
-    setMenuState((prevState) => ({
-      ...prevState,
-      [menuName]: event.currentTarget,
-    }));
-  };
-
-  const handleMenuClose = (menuName: string) => () => {
-    setMenuState((prevState) => ({
-      ...prevState,
-      [menuName]: null,
-    }));
-  };
-
-  const handleAvatarMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAvatarMenuAnchor(event.currentTarget);
-  };
-
-  const handleAvatarMenuClose = () => {
-    setAvatarMenuAnchor(null);
-  };
-
   const createDropdown = (
     label: string,
-    menuName: string,
     items: { name: string; icon: React.ReactNode, href: string }[]
   ) => (
-    <Box>
-      <Button onClick={handleMenuClick(menuName)} aria-haspopup="true" color="inherit">
-        {label}
-      </Button>
-      <Menu
-        anchorEl={menuState[menuName]}
-        open={Boolean(menuState[menuName])}
-        onClose={handleMenuClose(menuName)}
-        keepMounted
-      >
+    <MenuRoot>
+      <MenuTrigger asChild>
+        <Button variant="outline" textTransform="uppercase">
+          {label}
+        </Button>
+      </MenuTrigger>
+      <MenuContent>
         {items.map((item) => (
-          <MenuItem key={item.name} onClick={handleMenuClose(menuName)}>
-            <Link href={item.href} passHref>
-                <Box
-                sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    textDecoration: "none",
-                    color: "inherit",
-                    width: "100%", // Ensure the link takes full width
-                }}
-                >
-            <ListItemIcon>{item.icon}</ListItemIcon>
-            {item.name}
-          </Box>
-          </Link>
+          <MenuItem key={item.name} value={item.name}>
+            {item.icon}
+            <ChakraLink asChild>
+              <Link href={item.href}>
+                {item.name}
+              </Link>
+            </ChakraLink>
           </MenuItem>
         ))}
-      </Menu>
-    </Box>
+      </MenuContent>
+    </MenuRoot>
   );
 
   return (
-    <AppBar position="static" color="default" sx={{ borderBottom: "1px solid #ddd" }}>
-      <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        {/* Left Section: Logo + Menu Items */}
-        <Box sx={{ display: "flex", alignItems: "center", flexGrow: 1, gap: 2 }}>
-          {/* Logo */}
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+    <HStack justify="space-between" padding={5} borderBottomWidth={3} bg="bg.muted">
+      {/* Left Section: Logo + Menu Items */}
+      <HStack>
+        {/* Logo */}
+        <ChakraLink asChild>
           <Link href={'/'} passHref>
-            <img src="/static/images/logo.png" alt="Logo" style={{ height: 40 }} />
-            </Link>
-          </Box>    
+            <ChakraImage asChild>
+              <Image src="/static/images/logo.png" alt="Logo" width={40} height={40} />
+            </ChakraImage>
+          </Link>
+        </ChakraLink>
 
+        <Group>
           {/* Menu Items */}
-          <Button>About Us</Button>
-          {createDropdown("Competitions", "competitions", [
-            { name: "All", icon: <EventIcon />, href: "#"},
-            { name: "My Competitions", icon: <EventIcon /> , href: "#"},
+          <Button variant="outline" textTransform="uppercase">About Us</Button>
+          {createDropdown("Competitions", [
+            { name: "All", icon: <LuCalendar1 />, href: "#"},
+            { name: "My Competitions", icon: <LuCalendar1 /> , href: "#"},
           ])}
-          {createDropdown("Results", "results", [
-            { name: "Rankings", icon: <LeaderboardIcon /> , href: "#"},
-            { name: "Records", icon: <LeaderboardIcon /> , href: "#"},
-            { name: "Persons", icon: <PersonIcon />, href: "#" },
-            { name: "My Results", icon: <LeaderboardIcon />, href: "/results" },
-            { name: "Statistics", icon: <LeaderboardIcon />, href: "#" },
-            { name: "Multimedia", icon: <LeaderboardIcon />, href: "#" },
-            { name: "Results Export", icon: <LeaderboardIcon />, href: "#" },
-            { name: "Developer Export", icon: <LeaderboardIcon /> , href: "#"},
+          {createDropdown("Results", [
+            { name: "Rankings", icon: <LuChartNoAxesColumn /> , href: "#"},
+            { name: "Records", icon: <LuChartNoAxesColumn /> , href: "#"},
+            { name: "Persons", icon: <LuUser />, href: "#" },
+            { name: "My Results", icon: <LuChartNoAxesColumn />, href: "/persons/2022ANDE01" },
+            { name: "Statistics", icon: <LuChartNoAxesColumn />, href: "#" },
+            { name: "Multimedia", icon: <LuChartNoAxesColumn />, href: "#" },
+            { name: "Results Export", icon: <LuChartNoAxesColumn />, href: "#" },
+            { name: "Developer Export", icon: <LuChartNoAxesColumn /> , href: "#"},
           ])}
-          {createDropdown("Regulations", "regulations", [
-            { name: "About the Regulations", icon: <GavelIcon />, href: "#" },
-            { name: "Regulations & Guidelines", icon: <GavelIcon />, href: "#" },
-            { name: "Regulations", icon: <GavelIcon />, href: "#" },
-            { name: "Guidelines", icon: <GavelIcon />, href: "#" },
-            { name: "Scrambles", icon: <GavelIcon />, href: "#" },
-            { name: "Incidents log", icon: <GavelIcon /> , href: "#"},
-            { name: "Disciplinary log", icon: <GavelIcon />, href: "#" },
-            { name: "History", icon: <GavelIcon /> , href: "#"},
-            { name: "Translations", icon: <GavelIcon />, href: "#" },
+          {createDropdown("Regulations", [
+            { name: "About the Regulations", icon: <LuGavel />, href: "#" },
+            { name: "Regulations & Guidelines", icon: <LuGavel />, href: "#" },
+            { name: "Regulations", icon: <LuGavel />, href: "#" },
+            { name: "Guidelines", icon: <LuGavel />, href: "#" },
+            { name: "Scrambles", icon: <LuGavel />, href: "#" },
+            { name: "Incidents log", icon: <LuGavel /> , href: "#"},
+            { name: "Disciplinary log", icon: <LuGavel />, href: "#" },
+            { name: "History", icon: <LuGavel /> , href: "#"},
+            { name: "Translations", icon: <LuGavel />, href: "#" },
           ])}
-          {createDropdown("Information", "information", [
-            { name: "About the WCA", icon: <HelpIcon />, href: "#" },
-            { name: "WCA Documents", icon: <HelpIcon /> , href: "/information/documents"},
-            { name: "WCA Officers & Board", icon: <HelpIcon /> , href: "#"},
-            { name: "WCA Delegates", icon: <HelpIcon />, href: "#" },
-            { name: "Teams, Committees, and Councils", icon: <HelpIcon /> , href: "#"},
-            { name: "Regional Organizations", icon: <HelpIcon /> , href: "#"},
-            { name: "Translators", icon: <HelpIcon /> , href: "#"},
-            { name: "Frequently Asked Questions", icon: <HelpIcon /> , href: "/information/faq"},
-            { name: "Forum", icon: <HelpIcon /> , href: "#"},
-            { name: "Educational resources", icon: <HelpIcon />, href: "#" },
-            { name: "Contact", icon: <HelpIcon /> , href: "#"},
-            { name: "Speedcubing History", icon: <HelpIcon /> , href: "#"},
-            { name: "Media Submission", icon: <HelpIcon />, href: "#" },
-            { name: "Privacy", icon: <HelpIcon /> , href: "#"},
-            { name: "Disclaimer", icon: <HelpIcon />, href: "#" },
-            { name: "Tools", icon: <HelpIcon /> , href: "#"},
-            { name: "Logo", icon: <HelpIcon /> , href: "#"},
+          {createDropdown("Information", [
+            { name: "About the WCA", icon: <LuCircleHelp />, href: "#" },
+            { name: "WCA Documents", icon: <LuCircleHelp /> , href: "/information/documents"},
+            { name: "WCA Officers & Board", icon: <LuCircleHelp /> , href: "#"},
+            { name: "WCA Delegates", icon: <LuCircleHelp />, href: "#" },
+            { name: "Teams, Committees, and Councils", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Regional Organizations", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Translators", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Frequently Asked Questions", icon: <LuCircleHelp /> , href: "/information/faq"},
+            { name: "Forum", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Educational resources", icon: <LuCircleHelp />, href: "#" },
+            { name: "Contact", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Speedcubing History", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Media Submission", icon: <LuCircleHelp />, href: "#" },
+            { name: "Privacy", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Disclaimer", icon: <LuCircleHelp />, href: "#" },
+            { name: "Tools", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Logo", icon: <LuCircleHelp /> , href: "#"},
           ])}
-          <Button variant="contained" color="primary">WCA Live</Button>
-        </Box>
+          <Button variant="outline" textTransform="uppercase">WCA Live</Button>
+        </Group>
+      </HStack>
 
-        {/* Right Section: Search and Avatar */}
-        <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Search>
-            <StyledInputBase placeholder="Search site" />
-            <IconButton>
-              <SearchIcon />
-            </IconButton>
-          </Search>
-          <ModeSwitch />
-          <IconButton>
-            <LanguageIcon />
-            <Typography variant="body2" sx={{ ml: 1 }}>
-              English
-            </Typography>
-          </IconButton>
-          {/* Avatar with Profile Menu */}
-          <IconButton onClick={handleAvatarMenuOpen}>
-            <Avatar alt="User" src="/static/images/avatar/1.jpg" />
-          </IconButton>
-          <Menu
-            anchorEl={avatarMenuAnchor}
-            open={Boolean(avatarMenuAnchor)}
-            onClose={handleAvatarMenuClose}
-            keepMounted
-          >
+      {/* Right Section: Search and Avatar */}
+      <HStack>
+        <InputGroup startElement={<LuSearch />}>
+          <Input placeholder="Search site" />
+        </InputGroup>
+        <ColorModeButton variant="outline" />
+        <Button variant="ghost">
+          <LuGlobe /> English
+        </Button>
+        {/* Avatar with Profile Menu */}
+        <MenuRoot>
+          <MenuTrigger>
+            <Avatar name="Mitchell Anderson" src="/static/images/avatar/1.jpg" />
+          </MenuTrigger>
+          <MenuContent>
             {[
-              { name: "Name", icon: <PersonIcon /> },
-              { name: "Notifications", icon: <PersonIcon /> },
-              { name: "Edit profile", icon: <PersonIcon /> },
-              { name: "My Competitions", icon: <EventIcon /> },
-              { name: "My Results", icon: <LeaderboardIcon /> },
-              { name: "Staff panel", icon: <PersonIcon /> },
-              { name: "Delegate panel", icon: <PersonIcon /> },
-              { name: "Polls", icon: <PersonIcon /> },
-              { name: "Manage users", icon: <PersonIcon /> },
-              { name: "New Competition", icon: <EventIcon /> },
-              { name: "Manage your applications", icon: <PersonIcon /> },
-              { name: "Manage authorized applications", icon: <PersonIcon /> },
-              { name: "Sign out", icon: <PersonIcon /> },
+              { name: "Name", icon: <LuUser /> },
+              { name: "Notifications", icon: <LuUser /> },
+              { name: "Edit profile", icon: <LuUser /> },
+              { name: "My Competitions", icon: <LuCalendar1 /> },
+              { name: "My Results", icon: <LuChartNoAxesColumn /> },
+              { name: "Staff panel", icon: <LuUser /> },
+              { name: "Delegate panel", icon: <LuUser /> },
+              { name: "Polls", icon: <LuUser /> },
+              { name: "Manage users", icon: <LuUser /> },
+              { name: "New Competition", icon: <LuChartNoAxesColumn /> },
+              { name: "Manage your applications", icon: <LuUser /> },
+              { name: "Manage authorized applications", icon: <LuUser /> },
+              { name: "Sign out", icon: <LuUser /> },
             ].map((item) => (
-              <MenuItem key={item.name} onClick={handleAvatarMenuClose}>
-                <ListItemIcon>{item.icon}</ListItemIcon>
-                {item.name}
-              </MenuItem>
+                <MenuItem key={item.name} value={item.name}>
+                  {item.icon}
+                  {item.name}
+                </MenuItem>
             ))}
-          </Menu>
-        </Box>
-      </Toolbar>
-    </AppBar>
+          </MenuContent>
+        </MenuRoot>
+      </HStack>
+    </HStack>
   );
 }

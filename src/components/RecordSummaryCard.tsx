@@ -1,24 +1,39 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Card } from "@chakra-ui/react";
+import { StatRoot, StatValueText, StatValueUnit } from "@/components/ui/stat";
 
-const RecordSummaryCard: React.FC = () => {
+interface RecordSummaryCardProps {
+  world: number;
+  continental: number;
+  national: number;
+}
+
+const RecordSummaryCard: React.FC<RecordSummaryCardProps> = ({ world, continental, national }) => {
   return (
-    <Box
-      sx={{
-        backgroundColor: '#029347',
-        color: '#fcfcfc',
-        padding: '20px',
-        borderRadius: '10px',
-        boxShadow: 2,
-        textAlign: 'center',
-      }}
-       id="record-summary-card"
-    >
-      <Typography variant="h6">Record Collection</Typography>
-      <Typography variant="body1">
-        4 World <br /> 11 Continental <br /> 5 National
-      </Typography>
-    </Box>
+    <Card.Root bg="wcagreen.solid" color="wcagreen.contrast">
+      <Card.Body>
+        <Card.Title>Record Collection</Card.Title>
+        <StatRoot size="lg">
+          <StatValueText alignItems="baseline">
+            {world > 0 && (
+              <>
+                {world} <StatValueUnit color="wcagreen.contrast">World</StatValueUnit>
+              </>
+            )}
+            {continental > 0 && (
+              <>
+                {continental} <StatValueUnit color="wcagreen.contrast">Continental</StatValueUnit>
+              </>
+            )}
+            {national > 0 && (
+              <>
+                {national} <StatValueUnit color="wcagreen.contrast">National</StatValueUnit>
+              </>
+            )}
+          </StatValueText>
+        </StatRoot>
+      </Card.Body>
+    </Card.Root>
   );
 };
 

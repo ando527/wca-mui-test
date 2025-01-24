@@ -1,24 +1,39 @@
 import React from 'react';
-import { Box, Typography } from '@mui/material';
+import { Box, Card } from "@chakra-ui/react";
+import { StatLabel, StatRoot, StatValueText, StatValueUnit } from "@/components/ui/stat";
 
-const MedalSummaryCard: React.FC = () => {
+interface MedalSummaryCardProps {
+  gold: number;
+  silver: number;
+  bronze: number;
+}
+
+const MedalSummaryCard: React.FC<MedalSummaryCardProps> = ({ gold, silver, bronze }) => {
   return (
-    <Box
-      sx={{
-        backgroundColor: '#FFD313',
-        color: '#000000',
-        padding: '20px',
-        borderRadius: '10px',
-        boxShadow: 2,
-        textAlign: 'center',
-      }}
-       id="medal-summary-card"
-    >
-      <Typography variant="h6">Medal Collection</Typography>
-      <Typography variant="body1">
-        4 Gold <br /> 11 Silver <br /> 5 Bronze
-      </Typography>
-    </Box>
+    <Card.Root bg="wcayellow.solid" color="wcayellow.contrast">
+      <Card.Body>
+        <Card.Title>Medal Collection</Card.Title>
+        <StatRoot size="lg">
+          <StatValueText alignItems="baseline">
+            {gold > 0 && (
+              <>
+                {gold} <StatValueUnit>Gold</StatValueUnit>
+              </>
+            )}
+            {silver > 0 && (
+              <>
+                {silver} <StatValueUnit>Silver</StatValueUnit>
+              </>
+            )}
+            {bronze > 0 && (
+              <>
+                {bronze} <StatValueUnit>Bronze</StatValueUnit>
+              </>
+            )}
+          </StatValueText>
+        </StatRoot>
+      </Card.Body>
+    </Card.Root>
   );
 };
 

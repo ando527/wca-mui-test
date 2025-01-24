@@ -10,17 +10,18 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && pnpm update --latest"
   },
   "dependencies": {
-    "@emotion/cache": "latest",
-    "@emotion/react": "latest",
-    "@emotion/styled": "latest",
-    "@mui/icons-material": "latest",
-    "@mui/material": "latest",
-    "@mui/material-nextjs": "latest",
+    "@chakra-ui/react": "^3.4.0",
+    "@emotion/react": "^11.14.0",
+    "leaflet": "^1.9.4",
     "next": "^15.0.0",
+    "next-themes": "^0.4.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "react-leaflet": "^5.0.0"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.16",
     "@types/node": "latest",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
