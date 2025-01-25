@@ -10,7 +10,7 @@
     "post-update": "echo \"codesandbox preview only, need an update\" && pnpm update --latest"
   },
   "dependencies": {
-    "@chakra-ui/react": "^3.4.0",
+    "@chakra-ui/react": "^3.5.1",
     "@emotion/react": "^11.14.0",
     "leaflet": "^1.9.4",
     "next": "^15.0.0",

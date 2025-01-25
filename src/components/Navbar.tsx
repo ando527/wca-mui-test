@@ -3,9 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {Box, Center, Link as ChakraLink, Image as ChakraImage, Input, VStack, HStack, Group} from "@chakra-ui/react";
+import {Button, Link as ChakraLink, Image as ChakraImage, Input, HStack, Group} from "@chakra-ui/react";
 import {MenuContent, MenuItem, MenuRoot, MenuTrigger} from "@/components/ui/menu";
-import {Button} from "@/components/ui/button";
 import {LuCalendar1, LuChartNoAxesColumn, LuCircleHelp, LuGavel, LuGlobe, LuSearch, LuUser} from "react-icons/lu";
 import {ColorModeButton} from "@/components/ui/color-mode";
 import {Avatar} from "@/components/ui/avatar";
