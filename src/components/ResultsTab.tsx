@@ -4,9 +4,8 @@ import {
   Tabs,
   Heading,
   Table,
-  
+  Icon,
 } from "@chakra-ui/react";
-import Image from "next/image";
 
 
 interface ResultsTabProps {
@@ -109,7 +108,9 @@ const ResultsTab: React.FC<ResultsTabProps> = ({ results }) => {
         <Tabs.List>
           {orderedEvents.map((event) => (
             <Tabs.Trigger value={event} key={event}>
-                <Image src={"/static/images/events/" + event + ".svg"} alt="Logo" width={25} height={25} />
+              <Icon width={25} height={25} fontSize="2xl">
+                <i className={`cubing-icon event-${event}`} />
+              </Icon>
             </Tabs.Trigger>
           ))}
         </Tabs.List>
