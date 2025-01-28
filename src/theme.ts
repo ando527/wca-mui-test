@@ -5,6 +5,7 @@ import "leaflet/dist/leaflet.css";
 const customConfig = defineConfig({
   theme: {
     tokens: {
+      
       colors: {
         blue: {
           50: { value: "#0051BA" }, // Pantone 293 C
@@ -62,6 +63,14 @@ const customConfig = defineConfig({
       },
     },
     semanticTokens: {
+      shadows:{
+        wca: {
+          value: {
+            _light: "rgba(17, 17, 26, 0.2) 0px 0px 8px",
+            _dark: "rgba(252, 252, 252, 0.4) 0px 0px 8px"
+          }
+        }
+      },
       colors: {
         primary: { value: "{colors.blue.50}" },
         secondary: { value: "{colors.green.50}" },

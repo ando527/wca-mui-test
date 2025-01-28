@@ -27,7 +27,7 @@ const ProfileCard: React.FC<ProfileData> = ({
   completedSolves,
 }) => {
   return (
-    <Card.Root bg="wcawhite.muted" color="wcawhite.contrast"  h="85lvh" rounded="md" size="sm">
+    <Card.Root bg="wcawhite.muted" color="wcawhite.contrast"  h="85lvh" rounded="md" size="sm"  shadow="wca" position="sticky" top="20px">
       <Card.Header>
         <Center>
           {/* Profile Picture */}
