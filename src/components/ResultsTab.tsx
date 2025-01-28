@@ -115,7 +115,7 @@ const ResultsTab: React.FC<ResultsTabProps> = ({ results }) => {
           ))}
         </Tabs.List>
           {orderedEvents.map((event) => (
-            <Tabs.Content value={event}>{renderEventResults(event)}</Tabs.Content>
+            <Tabs.Content value={event} key={event}>{renderEventResults(event)}</Tabs.Content>
           ))}
       </Tabs.Root>
     </Box>
