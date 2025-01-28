@@ -6,7 +6,7 @@ import RecordSummaryCard from '@/components/RecordSummaryCard';
 import TabsComponent from '@/components/Tabs';
 import { GridItem, SimpleGrid } from "@chakra-ui/react";
 
-import StickyComponent from '@/components/StickyComponent';
+import StickyComponent from '@/components/Sticky';
 
 interface RecordItem {
   event: string;
@@ -234,7 +234,7 @@ if (data.person.delegate_status != null){
     
     <SimpleGrid gap={5} columns={12} padding={5}>
         {/* Profile Section */}
-          <GridItem colSpan={3} h="80lvh">
+          <GridItem colSpan={3} h="80lvh" position="sticky" top="20px">
           <ProfileCard
             name={data.person.name}
             profilePicture={data.person.avatar.url}

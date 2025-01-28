@@ -10,7 +10,7 @@ interface RecordSummaryCardProps {
 
 const RecordSummaryCard: React.FC<RecordSummaryCardProps> = ({ world, continental, national }) => {
   return (
-    <Card.Root bg="wcagreen.solid" color="wcagreen.contrast">
+    <Card.Root bg="wcagreen.solid" color="wcagreen.contrast" shadow="wca">
       <Card.Body>
         <Card.Title>Record Collection</Card.Title>
         <StatRoot size="lg">

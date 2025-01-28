@@ -51,7 +51,9 @@ export default function Navbar() {
 
         <Group>
           {/* Menu Items */}
-          <Button variant="outline" textTransform="uppercase">About Us</Button>
+          <Link href="/about">
+            <Button variant="outline" textTransform="uppercase">About Us</Button>
+          </Link>
           {createDropdown("Competitions", [
             { name: "All", icon: <LuCalendar1 />, href: "#"},
             { name: "My Competitions", icon: <LuCalendar1 /> , href: "#"},

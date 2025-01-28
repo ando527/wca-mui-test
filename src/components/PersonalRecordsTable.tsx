@@ -46,11 +46,11 @@ const PersonalRecordsTable: React.FC<RecordsProps> = ({ records }) => {
   };
 
   return (
-    <Card.Root bg="bg.inverted" color="fg.inverted">
+    <Card.Root bg="bg.inverted" color="fg.inverted" shadow="wca">
       <Card.Body p={0}>
         <Card.Title p={5}>Current Personal Records</Card.Title>
         {/* Tables don't seem to inherit styles correctly, normally all the extra bg and fg shouldn't be necessary */}
-        <Table.Root size="sm" striped>
+        <Table.Root size="sm" striped rounded="md">
           <Table.Header>
             <Table.Row bg="bg.inverted">
               <Table.ColumnHeader color="fg.inverted">Event</Table.ColumnHeader>
