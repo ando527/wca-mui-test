@@ -73,8 +73,10 @@ const RoleBadge: FC<RoleBadgeProps> = ({ teamRole, teamText, staffColor }) => {
         bg={colors.spanBg}
         color="#FCFCFC"
         fontWeight="600"
-        lineHeight="2"
-         zIndex="1"
+        lineHeight="1.9"
+        paddingTop= "1px"
+        zIndex="1"
+        whiteSpace="nowrap"
       >
         {teamText} {teamRole}
       </Text>
