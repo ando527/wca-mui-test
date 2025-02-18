@@ -2,15 +2,18 @@ import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 
 import "leaflet/dist/leaflet.css";
 
+
+
 const customConfig = defineConfig({
   theme: {
     tokens: {
-      
       colors: {
         blue: {
           50: { value: "#0051BA" }, // Pantone 293 C
-          100: { value: "#42D0FF" },
-          200: { value: "#99C7FF" },
+          100: { value: "#003366" },
+          200: { value: "#0153C1" },
+          300: { value: "#42D0FF" },
+          400: { value: "#99C7FF" },
         },
         green: {
           50: { value: "#029347" }, // Pantone 348 C
@@ -63,6 +66,10 @@ const customConfig = defineConfig({
       },
     },
     semanticTokens: {
+      sizes: {
+        "table.xs.cellPadding": { value: "{sizes.table-xs.cellPadding}" },
+        "table.xs.fontSize": { value: "{sizes.table-xs.fontSize}" },
+      },
       shadows:{
         wca: {
           value: {
@@ -75,6 +82,7 @@ const customConfig = defineConfig({
         primary: { value: "{colors.blue.50}" },
         secondary: { value: "{colors.green.50}" },
         background: { value: "{colors.white.50}" },
+        whiteText: { value: "{colors.supplementary.texts.light}" },
         textPrimary: { value: "{colors.supplementary.texts.dark}" },
         textSecondary: { value: "{colors.supplementary.texts.gray1}" },
         link: { value: "{colors.supplementary.links.blue}" },
@@ -91,12 +99,39 @@ const customConfig = defineConfig({
         },
         wcagreen: { 
           solid: { value:  { _light: "colors.green.50", _dark: "colors.green.200" } },
-          contrast: { value: { _light: "colors.supplementary.texts.light", _dark: "colors.supplementary.texts.light" }, },
+          contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
           fg: { value: "{colors.green.200}" },
           muted: { value: "{colors.green.200}" },
           subtle: { value: "{colors.brand.200}" },
           emphasized: { value:  { _light: "colors.green.50", _dark: "colors.green.100" } },
           focusRing: { value: "{colors.brand.500}" },
+        },
+        wcablue: { 
+          solid: { value:  { _light: "colors.blue.200", _dark: "colors.blue.50" } },
+          contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
+          fg: { value: "{colors.blue.200}" },
+          muted: { value: "{colors.blue.100}" },
+          subtle: { value: "{colors.blue.200}" },
+          emphasized: { value:  { _light: "colors.blue.400", _dark: "colors.blue.50" } },
+          focusRing: { value: "{colors.blue.100}" },
+        },
+        wcared: { 
+          solid: { value:  { _light: "colors.red.200", _dark: "colors.red.50" } },
+          contrast: { value: { _light: "colors.supplementary.texts.light", _dark: "colors.supplementary.texts.light" }, },
+          fg: { value: "{colors.red.200}" },
+          muted: { value: "{colors.red.200}" },
+          subtle: { value: "{colors.red.200}" },
+          emphasized: { value:  { _light: "colors.red.50", _dark: "colors.red.100" } },
+          focusRing: { value: "{colors.blue.100}" },
+        },
+        wcaorange: { 
+          solid: { value:  { _light: "colors.orange.200", _dark: "colors.orange.50" } },
+          contrast: { value: { _light: "colors.supplementary.texts.light", _dark: "colors.supplementary.texts.light" }, },
+          fg: { value: "{colors.orange.200}" },
+          muted: { value: "{colors.orange.200}" },
+          subtle: { value: "{colors.orange.200}" },
+          emphasized: { value:  { _light: "colors.orange.50", _dark: "colors.orange.100" } },
+          focusRing: { value: "{colors.blue.100}" },
         },
         bg: {
           DEFAULT: { value:  { _light: "colors.supplementary.bgs.white", _dark: "colors.supplementary.bgs.dark" }, },
