@@ -143,9 +143,36 @@ const customConfig = defineConfig({
           DEFAULT: { value:  { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
           inverted: { value:  { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
         },
-
       },
     },
+    recipes: {
+      button: {
+        base: {
+          transitionProperty: "background",
+          transitionTimingFunction: "ease",
+          borderRadius: "l3",
+          lineHeight: "1.2",
+          alignSelf: "start",
+          colorPalette: "wcablue"
+        },
+        variants: {
+          size: {
+            sm: {
+              padding: "4",
+              textStyle: "xs",
+            },
+            lg: {
+              px: "6",
+              py: "2.5",
+              textStyle: "sm",
+            },
+          },
+        },
+        defaultVariants: {
+          size: "lg",
+        },
+      }
+    }
   },
 });
 
