@@ -151,6 +151,7 @@ const customConfig = defineConfig({
           borderRadius: "l3",
           lineHeight: "1.2",
           alignSelf: "start",
+          colorPalette: "wcablue"
         },
         variants: {
           size: {
