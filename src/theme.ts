@@ -58,6 +58,7 @@ const customConfig = defineConfig({
             medium: { value: "#DCDCDC" },
             dark: { value: "#1E1E1E" },
             soft: { value: "#F9F9F9" },
+            transparent: {value: "rgba(0,0,0,0)"},
           },
           links: {
             blue: { value: "#0051BA" },
@@ -82,6 +83,7 @@ const customConfig = defineConfig({
         primary: { value: "{colors.blue.50}" },
         secondary: { value: "{colors.green.50}" },
         background: { value: "{colors.white.50}" },
+        transparent: { value: "{colors.supplementary.bgs.transparent}" },
         whiteText: { value: "{colors.supplementary.texts.light}" },
         textPrimary: { value: "{colors.supplementary.texts.dark}" },
         textSecondary: { value: "{colors.supplementary.texts.gray1}" },

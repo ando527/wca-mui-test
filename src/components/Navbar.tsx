@@ -3,38 +3,41 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {Button, Link as ChakraLink, Image as ChakraImage, Input, HStack, Group} from "@chakra-ui/react";
+import {Link as ChakraLink, Image as ChakraImage, Input, HStack, Group} from "@chakra-ui/react";
 import {MenuContent, MenuItem, MenuRoot, MenuTrigger} from "@/components/ui/menu";
 import {LuCalendar1, LuChartNoAxesColumn, LuCircleHelp, LuGavel, LuGlobe, LuSearch, LuUser} from "react-icons/lu";
 import {ColorModeButton} from "@/components/ui/color-mode";
 import {Avatar} from "@/components/ui/avatar";
 import {InputGroup} from "@/components/ui/input-group";
+import Button from "@/components/NavbarButton";
 
 export default function Navbar() {
   const createDropdown = (
     label: string,
-    items: { name: string; icon: React.ReactNode, href: string }[]
-  ) => (
-    <MenuRoot>
-      <MenuTrigger asChild>
-        <Button variant="outline" textTransform="uppercase">
-          {label}
-        </Button>
-      </MenuTrigger>
-      <MenuContent>
-        {items.map((item) => (
-          <MenuItem key={item.name} value={item.name}>
-            {item.icon}
-            <ChakraLink asChild>
-              <Link href={item.href}>
-                {item.name}
-              </Link>
-            </ChakraLink>
-          </MenuItem>
-        ))}
-      </MenuContent>
-    </MenuRoot>
-  );
+    items: { name: string; icon: React.ReactNode; href: string }[]
+  ) => {
+  
+    return (
+      <MenuRoot>
+        <MenuTrigger asChild>
+          <Button hasDropdown>
+            {label}
+          </Button>
+        </MenuTrigger>
+        <MenuContent>
+          {items.map((item) => (
+            <MenuItem key={item.name} value={item.name}>
+              {item.icon}
+              <ChakraLink asChild>
+                <Link href={item.href}>{item.name}</Link>
+              </ChakraLink>
+            </MenuItem>
+          ))}
+        </MenuContent>
+      </MenuRoot>
+    );
+  };
+  
 
   return (
     <HStack justify="space-between" padding={5} borderBottomWidth={3} bg="bg.muted">
@@ -52,7 +55,7 @@ export default function Navbar() {
         <Group>
           {/* Menu Items */}
           <Link href="/about">
-            <Button variant="outline" textTransform="uppercase">About Us</Button>
+            <Button>About Us</Button>
           </Link>
           {createDropdown("Competitions", [
             { name: "All", icon: <LuCalendar1 />, href: "#"},
@@ -98,7 +101,7 @@ export default function Navbar() {
             { name: "Tools", icon: <LuCircleHelp /> , href: "#"},
             { name: "Logo", icon: <LuCircleHelp /> , href: "#"},
           ])}
-          <Button variant="outline" textTransform="uppercase">WCA Live</Button>
+          <Button>WCA Live</Button>
         </Group>
       </HStack>
 
@@ -108,13 +111,13 @@ export default function Navbar() {
           <Input placeholder="Search site" />
         </InputGroup>
         <ColorModeButton variant="outline" />
-        <Button variant="ghost">
+        <Button>
           <LuGlobe /> English
         </Button>
         {/* Avatar with Profile Menu */}
         <MenuRoot>
           <MenuTrigger>
-            <Avatar name="Mitchell Anderson" src="/static/images/avatar/1.jpg" />
+            <Avatar name="Mitchell Anderson" src="/static/images/ma.jpg" />
           </MenuTrigger>
           <MenuContent>
             {[
