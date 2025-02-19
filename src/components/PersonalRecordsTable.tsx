@@ -1,5 +1,3 @@
-'use client'
-
 import React from 'react';
 import {Card, Table, Flex, Icon} from "@chakra-ui/react";
 import { Tooltip } from "@/components/ui/tooltip";
@@ -54,14 +52,26 @@ const PersonalRecordsTable: React.FC<RecordsProps> = ({ records }) => {
           <Table.Header>
             <Table.Row bg="bg.inverted">
               <Table.ColumnHeader color="fg.inverted">Event</Table.ColumnHeader>
-              <Tooltip content="National Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted" textAlign="right">NR</Table.ColumnHeader></Tooltip>
-              <Tooltip content="Continental Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted" textAlign="right">CR</Table.ColumnHeader></Tooltip>
-              <Tooltip content="World Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted" textAlign="right">WR</Table.ColumnHeader></Tooltip>
+              <Tooltip content="National Ranking" showArrow openDelay={100}>
+                <Table.ColumnHeader color="fg.inverted" textAlign="right">NR</Table.ColumnHeader>
+              </Tooltip>
+              <Tooltip content="Continental Ranking" showArrow openDelay={100}>
+                <Table.ColumnHeader color="fg.inverted" textAlign="right">CR</Table.ColumnHeader>
+              </Tooltip>
+              <Tooltip content="World Ranking" showArrow openDelay={100}>
+                <Table.ColumnHeader color="fg.inverted" textAlign="right">WR</Table.ColumnHeader>
+              </Tooltip>
               <Table.ColumnHeader color="fg.inverted" textAlign="right">Single</Table.ColumnHeader>
               <Table.ColumnHeader color="fg.inverted">Average</Table.ColumnHeader>
-              <Tooltip content="World Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted">WR</Table.ColumnHeader></Tooltip>
-              <Tooltip content="Continental Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted">CR</Table.ColumnHeader></Tooltip>
-              <Tooltip content="National Ranking" showArrow openDelay={100}><Table.ColumnHeader color="fg.inverted">NR</Table.ColumnHeader></Tooltip>
+              <Tooltip content="World Ranking" showArrow openDelay={100}>
+                <Table.ColumnHeader color="fg.inverted">WR</Table.ColumnHeader>
+              </Tooltip>
+              <Tooltip content="Continental Ranking" showArrow openDelay={100}>
+                <Table.ColumnHeader color="fg.inverted">CR</Table.ColumnHeader>
+              </Tooltip>
+              <Tooltip content="National Ranking" showArrow openDelay={100}>
+                <Table.ColumnHeader color="fg.inverted">NR</Table.ColumnHeader>
+              </Tooltip>
             </Table.Row>  
           </Table.Header>
           <Table.Body>
