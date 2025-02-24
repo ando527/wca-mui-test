@@ -185,7 +185,7 @@ const customConfig = defineConfig({
             outline: {
               borderWidth: "2px",
               borderColor: "colorPalette.solid",
-              color: "fg" ,
+              color: "colorPalette.fg" ,
               bg: "transparent",
               _hover: {
                 bg: "colorPalette.fg/30",
@@ -194,7 +194,7 @@ const customConfig = defineConfig({
             ghost: {
               borderWidth: "0px", 
               bg: "transparent", 
-              color: "fg",
+              color: "colorPalette.fg",
               _hover: {
                 color: "colorPalette.solid",
               },
