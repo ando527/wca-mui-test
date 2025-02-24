@@ -3,13 +3,13 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {Link as ChakraLink, Image as ChakraImage, Input, HStack, Group} from "@chakra-ui/react";
+import {Button, Link as ChakraLink, Image as ChakraImage, Input, HStack, Group, Icon} from "@chakra-ui/react";
 import {MenuContent, MenuItem, MenuRoot, MenuTrigger} from "@/components/ui/menu";
 import {LuCalendar1, LuChartNoAxesColumn, LuCircleHelp, LuGavel, LuGlobe, LuSearch, LuUser} from "react-icons/lu";
 import {ColorModeButton} from "@/components/ui/color-mode";
 import {Avatar} from "@/components/ui/avatar";
 import {InputGroup} from "@/components/ui/input-group";
-import Button from "@/components/NavbarButton";
+import { LuChevronDown } from "react-icons/lu";
 
 export default function Navbar() {
   const createDropdown = (
@@ -20,18 +20,21 @@ export default function Navbar() {
     return (
       <MenuRoot>
         <MenuTrigger asChild>
-          <Button hasDropdown>
+          <Button variant="ghost" size="sm">
             {label}
+            <LuChevronDown></LuChevronDown>
           </Button>
         </MenuTrigger>
         <MenuContent>
           {items.map((item) => (
+            
             <MenuItem key={item.name} value={item.name}>
-              {item.icon}
-              <ChakraLink asChild>
-                <Link href={item.href}>{item.name}</Link>
-              </ChakraLink>
+              <Button asChild variant="ghost" size="sm">
+              <a href={item.href}>{item.icon}
+              {item.name}</a>
+               </Button>
             </MenuItem>
+            
           ))}
         </MenuContent>
       </MenuRoot>
@@ -55,7 +58,7 @@ export default function Navbar() {
         <Group>
           {/* Menu Items */}
           <Link href="/about">
-            <Button>About Us</Button>
+            <Button variant="ghost" size="sm">About Us</Button>
           </Link>
           {createDropdown("Competitions", [
             { name: "All", icon: <LuCalendar1 />, href: "#"},
@@ -100,8 +103,9 @@ export default function Navbar() {
             { name: "Disclaimer", icon: <LuCircleHelp />, href: "#" },
             { name: "Tools", icon: <LuCircleHelp /> , href: "#"},
             { name: "Logo", icon: <LuCircleHelp /> , href: "#"},
+            { name: "Style Guide", icon: <LuCircleHelp /> , href: "/information/styleguide"},
           ])}
-          <Button>WCA Live</Button>
+          <Button variant="ghost"  size="sm">WCA Live</Button>
         </Group>
       </HStack>
 
@@ -110,8 +114,8 @@ export default function Navbar() {
         <InputGroup startElement={<LuSearch />}>
           <Input placeholder="Search site" />
         </InputGroup>
-        <ColorModeButton variant="outline" />
-        <Button>
+        <ColorModeButton variant="ghost" />
+        <Button variant="ghost">
           <LuGlobe /> English
         </Button>
         {/* Avatar with Profile Menu */}
