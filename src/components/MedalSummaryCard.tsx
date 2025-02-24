@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Card } from "@chakra-ui/react";
-import { StatLabel, StatRoot, StatValueText, StatValueUnit } from "@/components/ui/stat";
+import {Stat, Card, StatGroup} from "@chakra-ui/react";
 
 interface MedalSummaryCardProps {
   gold: number;
@@ -13,25 +12,26 @@ const MedalSummaryCard: React.FC<MedalSummaryCardProps> = ({ gold, silver, bronz
     <Card.Root bg="wcayellow.solid" color="wcayellow.contrast" shadow="wca">
       <Card.Body>
         <Card.Title>Medal Collection</Card.Title>
-        <StatRoot size="lg">
-          <StatValueText alignItems="baseline">
-            {gold > 0 && (
-              <>
-                {gold} <StatValueUnit>Gold</StatValueUnit>
-              </>
-            )}
-            {silver > 0 && (
-              <>
-                {silver} <StatValueUnit>Silver</StatValueUnit>
-              </>
-            )}
-            {bronze > 0 && (
-              <>
-                {bronze} <StatValueUnit>Bronze</StatValueUnit>
-              </>
-            )}
-          </StatValueText>
-        </StatRoot>
+        <StatGroup size="lg">
+          {gold > 0 && (
+            <Stat.Root>
+              <Stat.ValueText>{gold}</Stat.ValueText>
+              <Stat.Label>Gold</Stat.Label>
+            </Stat.Root>
+          )}
+          {silver > 0 && (
+            <Stat.Root>
+              <Stat.ValueText>{silver}</Stat.ValueText>
+              <Stat.Label>Silver</Stat.Label>
+            </Stat.Root>
+          )}
+          {bronze > 0 && (
+            <Stat.Root>
+              <Stat.ValueText>{bronze}</Stat.ValueText>
+              <Stat.Label>Bronze</Stat.Label>
+            </Stat.Root>
+          )}
+        </StatGroup>
       </Card.Body>
     </Card.Root>
   );
