@@ -169,41 +169,36 @@ const customConfig = defineConfig({
         },
         variants: {
           variant: {
-            solid: { 
+            solid: {
               borderWidth: "2px", 
               borderColor: "colorPalette.solid", 
-              bg: "colorPalette.solid", 
-              color: "colorPalette.contrast",
               _hover: {
-                  bg: "colorPalette.muted",
-                  borderColor: "colorPalette.muted", 
-                  color: "whiteText",
-                },
+                bg: "colorPalette.muted",
+                borderColor: "colorPalette.muted",
+                color: "whiteText",
+              },
               _expanded: {
-                  bg: "colorPalette.muted",
-                  borderColor: "colorPalette.muted", 
-                },
-             },
+                bg: "colorPalette.muted",
+                borderColor: "colorPalette.muted",
+              },
+            },
             outline: {
-               borderWidth: "2px", 
-               borderColor: "colorPalette.solid", 
-               color: "fg.DEFAULT" ,
-               bg: "transparent",
-               _hover: {
-                  bg: "colorPalette.fg/30",
-                },},
-            ghost: { 
+              borderWidth: "2px",
+              borderColor: "colorPalette.solid",
+              color: "fg" ,
+              bg: "transparent",
+              _hover: {
+                bg: "colorPalette.fg/30",
+              },
+            },
+            ghost: {
               borderWidth: "0px", 
               bg: "transparent", 
-              color: "fg.DEFAULT",
+              color: "fg",
               _hover: {
-                  color: "colorPalette.solid", 
-                  bg: "transparent", 
-                },
-                _expanded: {
-                  bg: "transparent",
-                },
-                 },
+                color: "colorPalette.solid",
+              },
+            },
             surface: {
               color: "whiteText",
             },
@@ -218,7 +213,6 @@ const customConfig = defineConfig({
           size: {
             sm: {
               padding: "3",
-              textStyle: "sm",
             },
             lg: {
               px: "6",
