@@ -1,5 +1,5 @@
 import React from 'react';
-import {Badge, Card, Center, HStack, VStack} from "@chakra-ui/react";
+import {Badge, Card, Center, HStack, Flex, Text} from "@chakra-ui/react";
 import {Image} from "@chakra-ui/react";
 import {DataListItem, DataListRoot} from "@/components/ui/data-list";
 import RoleBadge from "@/components/RoleBadge";
@@ -37,8 +37,8 @@ const ProfileCard: React.FC<ProfileData> = ({
 
       <Card.Body>
         <Card.Title marginBottom={2}>
-          {name}
-          <HStack>
+          <Text textStyle="3xl">{name}</Text>
+          <Flex direction="row" wrap="wrap" align="start" gap="4px 8px">
           {roles.map((role, index) => (
               <RoleBadge
                 key={index}
@@ -47,7 +47,7 @@ const ProfileCard: React.FC<ProfileData> = ({
                 staffColor={role.staffColor}
               />
             ))}
-          </HStack>
+          </Flex>
         </Card.Title>
         <DataListRoot orientation="horizontal">
           <DataListItem label="WCA ID" value={wcaId} />

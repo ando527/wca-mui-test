@@ -34,3 +34,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 # next-env.d.ts
+
+src/app/fonts/TTNormsPro/TT_Norms_Pro_Bold.woff2
+src/app/fonts/TTNormsPro/TT_Norms_Pro_Condensed_ExtraBold.woff2
+src/app/fonts/TTNormsPro/TT_Norms_Pro_Light_Italic.woff2
+src/app/fonts/TTNormsPro/TT_Norms_Pro_Light.woff2
+src/app/fonts/TTNormsPro/TT_Norms_Pro_Medium.woff2
+src/app/fonts/TTNormsPro/TT_Norms_Pro_Regular.woff2

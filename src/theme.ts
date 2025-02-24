@@ -17,9 +17,9 @@ const customConfig = defineConfig({
         },
         green: {
           50: { value: "#029347" }, // Pantone 348 C
-          100: { value: "#00FF7F" },
-          200: { value: "#1B4D3E" },
-          300: { value: "#C1E6CD" },
+          100: { value: "#1B4D3E" },
+          300: { value: "#00FF7F" },
+          400: { value: "#C1E6CD" },
         },
         wcawhite: {
           50: { value: "#FFFFFF" }, // Pantone White
@@ -31,19 +31,21 @@ const customConfig = defineConfig({
         },
         red: {
           50: { value: "#C62535" }, // Pantone 1797 C
-          100: { value: "#FF6B6B" },
-          200: { value: "#7A1220" },
-          300: { value: "#F6C5C5" },
+          100: { value: "#7A1220" },
+          300: { value: "#FF6B6B" },
+          400: { value: "#F6C5C5" },
         },
         yellow: {
           50: { value: "#FFD313" }, // Pantone 116 C
-          100: { value: "#FFF5AA" },
-          200: { value: "#664D00" },
+          100: { value: "#664D00" },
+          300: { value: "#FFF5AA" },
+          400: { value: "#FFF5B8" },
         },
         orange: {
           50: { value: "#FF5800" }, // Pantone Orange 021 C
-          100: { value: "#FFD59E" },
-          200: { value: "#7A2B00" },
+          100: { value: "#7A2B00" },
+          300: { value: "#FFD59E" },
+          400: { value: "#FFD5BD" },
         },
         supplementary: {
           texts: {
@@ -87,6 +89,8 @@ const customConfig = defineConfig({
         whiteText: { value: "{colors.supplementary.texts.light}" },
         textPrimary: { value: "{colors.supplementary.texts.dark}" },
         textSecondary: { value: "{colors.supplementary.texts.gray1}" },
+        lightBackground: { value: "{colors.supplementary.bgs.light}" },
+        mediumBackground: { value: "{colors.supplementary.bgs.medium}" },
         link: { value: "{colors.supplementary.links.blue}" },
         danger: { value: "{colors.red.50}" },
         warning: { value: "{colors.yellow.50}" },
@@ -96,44 +100,50 @@ const customConfig = defineConfig({
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
         },
         wcayellow: {
-          solid: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.200" } },
+          solid: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.100" } },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
+          hoverText: { value: "{colors.supplementary.texts.light}" },
+          fg: { value: "{colors.yellow.400}" },
+          muted: { value: "{colors.yellow.100/90}" },
+          subtle: { value: "{colors.yellow.100}" },
+          emphasized: { value: "{colors.yellow.300}" },
+          focusRing: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.100" } },
         },
         wcagreen: { 
-          solid: { value:  { _light: "colors.green.50", _dark: "colors.green.200" } },
-          contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
-          fg: { value: "{colors.green.200}" },
-          muted: { value: "{colors.green.200}" },
-          subtle: { value: "{colors.brand.200}" },
-          emphasized: { value:  { _light: "colors.green.50", _dark: "colors.green.100" } },
-          focusRing: { value: "{colors.brand.500}" },
+          solid: { value:  { _light: "colors.green.50", _dark: "colors.green.100" } },
+          contrast: { value: "{colors.supplementary.texts.light}" },
+          fg: { value: "{colors.green.400}" },
+          muted: { value: "{colors.green.100/90}" },
+          subtle: { value: "{colors.green.100}" },
+          emphasized: { value: "{colors.green.300}" },
+          focusRing: { value:  { _light: "colors.green.50", _dark: "colors.green.100" } },
         },
         wcablue: { 
-          solid: { value:  { _light: "colors.blue.200", _dark: "colors.blue.50" } },
-          contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
-          fg: { value: "{colors.blue.200}" },
-          muted: { value: "{colors.blue.100}" },
-          subtle: { value: "{colors.blue.200}" },
-          emphasized: { value:  { _light: "colors.blue.400", _dark: "colors.blue.50" } },
-          focusRing: { value: "{colors.blue.100}" },
+          solid: { value:  { _light: "colors.blue.50", _dark: "colors.blue.100" } },
+          contrast: { value: "{colors.supplementary.texts.light}" },
+          fg: { value: "{colors.blue.400}" },
+          muted: { value: "{colors.blue.100/90}" },
+          subtle: { value: "{colors.blue.100}" },
+          emphasized: { value: "{colors.blue.300}" },
+          focusRing: { value:  { _light: "colors.blue.50", _dark: "colors.blue.100" } },
         },
         wcared: { 
-          solid: { value:  { _light: "colors.red.200", _dark: "colors.red.50" } },
-          contrast: { value: { _light: "colors.supplementary.texts.light", _dark: "colors.supplementary.texts.light" }, },
-          fg: { value: "{colors.red.200}" },
-          muted: { value: "{colors.red.200}" },
-          subtle: { value: "{colors.red.200}" },
-          emphasized: { value:  { _light: "colors.red.50", _dark: "colors.red.100" } },
-          focusRing: { value: "{colors.blue.100}" },
+          solid: { value:  { _light: "colors.red.50", _dark: "colors.red.100" } },
+          contrast: { value: "{colors.supplementary.texts.light}" },
+          fg: { value: "{colors.red.400}" },
+          muted: { value: "{colors.red.100/90}" },
+          subtle: { value: "{colors.red.100}" },
+          emphasized: { value: "{colors.red.300}" },
+          focusRing: { value:  { _light: "colors.red.50", _dark: "colors.red.100" } },
         },
         wcaorange: { 
-          solid: { value:  { _light: "colors.orange.200", _dark: "colors.orange.50" } },
-          contrast: { value: { _light: "colors.supplementary.texts.light", _dark: "colors.supplementary.texts.light" }, },
-          fg: { value: "{colors.orange.200}" },
-          muted: { value: "{colors.orange.200}" },
-          subtle: { value: "{colors.orange.200}" },
-          emphasized: { value:  { _light: "colors.orange.50", _dark: "colors.orange.100" } },
-          focusRing: { value: "{colors.blue.100}" },
+          solid: { value:  { _light: "colors.orange.50", _dark: "colors.orange.100" } },
+          contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
+          fg: { value: "{colors.orange.400}" },
+          muted: { value: "{colors.orange.100/90}" },
+          subtle: { value: "{colors.orange.100}" },
+          emphasized: { value: "{colors.orange.300}" },
+          focusRing: { value:  { _light: "colors.orange.50", _dark: "colors.orange.100" } },
         },
         bg: {
           DEFAULT: { value:  { _light: "colors.supplementary.bgs.white", _dark: "colors.supplementary.bgs.dark" }, },
@@ -143,12 +153,14 @@ const customConfig = defineConfig({
           DEFAULT: { value:  { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
           inverted: { value:  { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
         },
+
       },
     },
+
     recipes: {
       button: {
         base: {
-          transitionProperty: "background",
+          transitionProperty: "background, border, color, borderColor",
           transitionTimingFunction: "ease",
           borderRadius: "l3",
           lineHeight: "1.2",
@@ -156,10 +168,57 @@ const customConfig = defineConfig({
           colorPalette: "wcablue"
         },
         variants: {
+          variant: {
+            solid: { 
+              borderWidth: "2px", 
+              borderColor: "colorPalette.solid", 
+              bg: "colorPalette.solid", 
+              color: "colorPalette.contrast",
+              _hover: {
+                  bg: "colorPalette.muted",
+                  borderColor: "colorPalette.muted", 
+                  color: "whiteText",
+                },
+              _expanded: {
+                  bg: "colorPalette.muted",
+                  borderColor: "colorPalette.muted", 
+                },
+             },
+            outline: {
+               borderWidth: "2px", 
+               borderColor: "colorPalette.solid", 
+               color: "fg.DEFAULT" ,
+               bg: "transparent",
+               _hover: {
+                  bg: "colorPalette.fg/30",
+                },},
+            ghost: { 
+              borderWidth: "0px", 
+              bg: "transparent", 
+              color: "fg.DEFAULT",
+              _hover: {
+                  color: "colorPalette.solid", 
+                  bg: "transparent", 
+                },
+                _expanded: {
+                  bg: "transparent",
+                },
+                 },
+            surface: {
+              color: "whiteText",
+            },
+            plain: {
+              color: "colorPalette.subtle",
+              bg: "lightBackground",
+              _hover: {
+                bg: "mediumBackground",
+              },
+            }
+          },
           size: {
             sm: {
-              padding: "4",
-              textStyle: "xs",
+              padding: "3",
+              textStyle: "sm",
             },
             lg: {
               px: "6",
@@ -169,10 +228,12 @@ const customConfig = defineConfig({
           },
         },
         defaultVariants: {
+          variant: "solid",
           size: "lg",
         },
       }
     }
+
   },
 });
 
