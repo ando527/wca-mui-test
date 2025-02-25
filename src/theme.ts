@@ -59,6 +59,7 @@ const customConfig = defineConfig({
             light: { value: "#EDEDED" },
             medium: { value: "#DCDCDC" },
             dark: { value: "#1E1E1E" },
+            mid: { value: "#B8B8B8" },
             soft: { value: "#F9F9F9" },
             transparent: {value: "rgba(0,0,0,0)"},
           },
@@ -99,7 +100,7 @@ const customConfig = defineConfig({
           muted: { value: { _light: "{colors.wcawhite.400}", _dark: "{colors.wcawhite.200}" }, },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
         },
-        wcayellow: {
+        yellow: {
           solid: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.100" } },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
           hoverText: { value: "{colors.supplementary.texts.light}" },
@@ -108,8 +109,22 @@ const customConfig = defineConfig({
           subtle: { value: "{colors.yellow.100}" },
           emphasized: { value: "{colors.yellow.300}" },
           focusRing: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.100" } },
+          gradient: {
+            default: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.yellow.fg} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.yellow.muted} 0%, {colors.bg} 100%)"
+              },
+            },
+            hover: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.yellow.fg/80} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.yellow.muted/80} 0%, {colors.bg} 100%)"
+              },
+            }
+          },
         },
-        wcagreen: { 
+        green: { 
           solid: { value:  { _light: "colors.green.50", _dark: "colors.green.100" } },
           contrast: { value: "{colors.supplementary.texts.light}" },
           fg: { value: "{colors.green.400}" },
@@ -117,8 +132,22 @@ const customConfig = defineConfig({
           subtle: { value: "{colors.green.100}" },
           emphasized: { value: "{colors.green.300}" },
           focusRing: { value:  { _light: "colors.green.50", _dark: "colors.green.100" } },
+          gradient: {
+            default: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.green.fg} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.green.muted} 0%, {colors.bg} 100%)"
+              },
+            },
+            hover: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.green.fg/80} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.green.muted/80} 0%, {colors.bg} 100%)"
+              },
+            }
+          },
         },
-        wcablue: { 
+        blue: { 
           solid: { value:  { _light: "colors.blue.50", _dark: "colors.blue.100" } },
           contrast: { value: "{colors.supplementary.texts.light}" },
           fg: { value: "{colors.blue.400}" },
@@ -126,8 +155,22 @@ const customConfig = defineConfig({
           subtle: { value: "{colors.blue.100}" },
           emphasized: { value: "{colors.blue.300}" },
           focusRing: { value:  { _light: "colors.blue.50", _dark: "colors.blue.100" } },
+          gradient: {
+            default: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.blue.fg} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.blue.muted} 0%, {colors.bg} 100%)"
+              },
+            },
+            hover: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.blue.fg/80} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.blue.muted/80} 0%, {colors.bg} 100%)"
+              },
+            }
+          },
         },
-        wcared: { 
+        red: { 
           solid: { value:  { _light: "colors.red.50", _dark: "colors.red.100" } },
           contrast: { value: "{colors.supplementary.texts.light}" },
           fg: { value: "{colors.red.400}" },
@@ -135,8 +178,22 @@ const customConfig = defineConfig({
           subtle: { value: "{colors.red.100}" },
           emphasized: { value: "{colors.red.300}" },
           focusRing: { value:  { _light: "colors.red.50", _dark: "colors.red.100" } },
+          gradient: {
+            default: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.red.fg} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.red.muted} 0%, {colors.bg} 100%)"
+              },
+            },
+            hover: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.red.fg/80} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.red.muted/80} 0%, {colors.bg} 100%)"
+              },
+            }
+          },
         },
-        wcaorange: { 
+        orange: { 
           solid: { value:  { _light: "colors.orange.50", _dark: "colors.orange.100" } },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
           fg: { value: "{colors.orange.400}" },
@@ -144,6 +201,20 @@ const customConfig = defineConfig({
           subtle: { value: "{colors.orange.100}" },
           emphasized: { value: "{colors.orange.300}" },
           focusRing: { value:  { _light: "colors.orange.50", _dark: "colors.orange.100" } },
+          gradient: {
+            default: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.orange.fg} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.orange.muted} 0%, {colors.bg} 100%)"
+              },
+            },
+            hover: {
+              value: {
+                _light: "linear-gradient(90deg, {colors.orange.fg/80} 0%, {colors.bg} 100%)",
+                _dark: "linear-gradient(90deg, {colors.orange.muted/80} 0%, {colors.bg} 100%)"
+              },
+            }
+          },
         },
         bg: {
           DEFAULT: { value:  { _light: "colors.supplementary.bgs.white", _dark: "colors.supplementary.bgs.dark" }, },
@@ -153,7 +224,6 @@ const customConfig = defineConfig({
           DEFAULT: { value:  { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
           inverted: { value:  { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
         },
-
       },
     },
 
@@ -165,7 +235,7 @@ const customConfig = defineConfig({
           borderRadius: "l3",
           lineHeight: "1.2",
           alignSelf: "start",
-          colorPalette: "wcablue"
+          colorPalette: "blue"
         },
         variants: {
           variant: {
