@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Button, Heading, Text, For, HStack, Container, VStack} from "@chakra-ui/react";
 
 const buttonVariants = ['solid', 'ghost', 'outline', 'plain', 'subtle'];
-const wcaColors = ["wcablue", "wcagreen", "wcared", "wcaorange", "wcayellow"];
+const wcaColors = ["blue", "green", "red", "orange", "yellow"];
 
 export default function Home() {
   return (
