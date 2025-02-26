@@ -1,5 +1,6 @@
 import React from 'react';
-import {Stat, Card, StatGroup} from "@chakra-ui/react";
+import {Stat, Card, StatGroup, Float, Icon} from "@chakra-ui/react";
+import {LuMedal} from "react-icons/lu";
 
 interface MedalSummaryCardProps {
   gold: number;
@@ -9,7 +10,12 @@ interface MedalSummaryCardProps {
 
 const MedalSummaryCard: React.FC<MedalSummaryCardProps> = ({ gold, silver, bronze }) => {
   return (
-    <Card.Root bg="wcayellow.solid" color="wcayellow.contrast" shadow="wca">
+    <Card.Root colorPalette="yellow" variant="hero" overflow="hidden">
+      <Float placement="middle-end" offsetX="8">
+        <Icon fontSize="10rem" color="colorPalette.400">
+          <LuMedal />
+        </Icon>
+      </Float>
       <Card.Body>
         <Card.Title>Medal Collection</Card.Title>
         <StatGroup size="lg">
