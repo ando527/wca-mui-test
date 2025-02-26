@@ -1,5 +1,8 @@
 import * as React from 'react';
-import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image} from "@chakra-ui/react";
+import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input} from "@chakra-ui/react";
+import {AccordionItem, AccordionItemContent, AccordionItemTrigger, AccordionRoot} from "@/components/ui/accordion";
+import {Field} from "@/components/ui/field";
+
 
 const buttonVariants = ['solid', 'ghost', 'outline', 'plain', 'subtle'];
 const wcaColors = ["blue", "green", "red", "orange", "yellow"];
@@ -44,7 +47,7 @@ export default function Home() {
 
         <Text >Hero Profile Info</Text>
         <Flex gap="2">
-            <Card.Root maxW="sm" overflow="hidden" variant="elevated" colorPalette="green">
+            <Card.Root maxW="sm" overflow="hidden" variant="hero" colorPalette="green">
                 <Image
                     src="https://avatars.worldcubeassociation.org/uploads/user/avatar/2014PRID01/1651581622.PNG"
                     alt="Ethan Pride Profile Photo"
@@ -63,7 +66,7 @@ export default function Home() {
                 </Card.Body>
             </Card.Root>
 
-            <Card.Root maxW="sm" overflow="hidden" variant="elevated" colorPalette="blue">
+            <Card.Root maxW="sm" overflow="hidden" variant="hero" colorPalette="blue">
                 <Image
                     src="https://avatars.worldcubeassociation.org/uploads/user/avatar/2019JARM01/1686450645.jpg"
                     alt="Kerri Jarman Profile Photo"
@@ -82,7 +85,7 @@ export default function Home() {
                 </Card.Body>
             </Card.Root>
 
-            <Card.Root maxW="sm" overflow="hidden" variant="elevated" colorPalette="yellow">
+            <Card.Root maxW="sm" overflow="hidden" variant="hero" colorPalette="yellow">
                 <Image
                     src="https://avatars.worldcubeassociation.org/uploads/user/avatar/2016SILV08/1713202675.jpg"
                     alt="Nick Silvestri Profile Photo"
@@ -101,6 +104,68 @@ export default function Home() {
                 </Card.Body>
             </Card.Root>
         </Flex>
+
+        <Text>Sample FAQs (Accordion)</Text>
+        <AccordionRoot multiple collapsible variant="subtle" width="full">
+          <AccordionItem value="wca-id">
+            <AccordionItemTrigger colorPalette="blue">
+              How do I obtain a WCA ID and a WCA profile?
+            </AccordionItemTrigger>
+            <AccordionItemContent>
+              You can obtain a WCA ID and profile by participating in an official WCA competition.
+              Once your results are uploaded, your profile will be automatically created.
+            </AccordionItemContent>
+          </AccordionItem>
+          <AccordionItem value="find-competition">
+            <AccordionItemTrigger colorPalette="blue">
+              How can I find a WCA competition?
+            </AccordionItemTrigger>
+            <AccordionItemContent>
+              You can find WCA competitions on the official WCA website under the "Competitions" tab.
+              There, you can filter competitions by country, date, or type.
+            </AccordionItemContent>
+          </AccordionItem>
+          <AccordionItem value="register">
+            <AccordionItemTrigger colorPalette="blue">
+              How can I register for a competition? Who can I refer to if I have problems registering for a
+              competition?
+            </AccordionItemTrigger>
+            <AccordionItemContent>
+              Many competitions do registration right here on the WCA website, but some use their own systems.
+              You should contact the organizers of the competition you want to compete in for more details.
+              {/* Search for Competition */}
+              <Field orientation="horizontal" label="Search for a competition here:">
+                <Input placeholder="Search…"/>
+              </Field>
+            </AccordionItemContent>
+          </AccordionItem>
+          <AccordionItem value="requirements">
+            <AccordionItemTrigger colorPalette="blue">
+              What are the requirements for attending a WCA competition? What do I need to know before attending a WCA
+              competition?
+            </AccordionItemTrigger>
+            <AccordionItemContent>
+              Familiarize yourself with the WCA regulations and ensure you understand the competition flow.
+              Competitors must bring their
+              own cubes and follow the rules.
+            </AccordionItemContent>
+          </AccordionItem>
+          <AccordionItem value="comp-hometown">
+            <AccordionItemTrigger colorPalette="red">
+              How can I have a WCA competition in my hometown?
+            </AccordionItemTrigger>
+            <AccordionItemContent>
+              If you are interested in organizing a competition, it's highly recommended to attend at least one or two
+              competitions as a
+              competitor to learn from the experience.
+
+              WCA Competitions must follow the <a href="#">WCA Regulations</a>. After that, the organization team must
+              contact a nearby{' '}
+              <a href="#">WCA Delegate</a>. Visit the <a href="#">WCA Competition Organizer Guidelines</a> for further
+              information.
+            </AccordionItemContent>
+          </AccordionItem>
+        </AccordionRoot>
 
       </VStack>
     </Container>

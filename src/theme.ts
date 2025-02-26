@@ -344,14 +344,52 @@ const customConfig = defineConfig({
     },
     slotRecipes: {
       card: {
-        slots: ["root", "header", "body", "footer", "title", "description"],
-        base: {
-          body: {
-            bg: "colorPalette.solid",
-            color:  "colorPalette.contrast",
+        variants: {
+          variant: {
+            hero: {
+              root: {
+                shadow: "{shadows.wca}",
+              },
+              body: {
+                bg: "colorPalette.solid",
+                color:  "colorPalette.contrast",
+                
+              }
+            }
           }
         }
       },
+      accordion: {
+        variants: {
+          variant: {
+            subtle: {
+              root: {
+                "--accordion-radius": "radii.l3",
+                transitionProperty: "background, border",//not working
+                transitionTimingFunction: "ease",//not working
+              },
+              item: {
+                borderColor: "{colors.supplementary.bgs.mid}",
+                borderWidth: "1px",
+                marginBottom: "3",
+                _open: {
+                  bg: "bg",
+                },
+              },
+              itemTrigger: {
+                _hover: {
+                  bgImage: "var(--chakra-colors-color-palette-gradient-hover)",
+                },
+                _open: {
+                  bgImage: "var(--chakra-colors-color-palette-gradient-default)",
+                  borderTopRadius: "var(--accordion-radius)",
+                  borderBottomRadius: "0",
+                }
+              }
+            }
+          },
+        }
+      }
     },
   },
 });
