@@ -352,6 +352,31 @@ const customConfig = defineConfig({
           }
         }
       },
+      accordion: {
+        slots: ["root", "item", "itemTrigger", "itemContent", "itemIndicator", "itemBody"],
+        base: {
+          root: {
+            "--accordion-radius": "radii.l3",
+            transitionProperty: "background, border",//not working
+            transitionTimingFunction: "ease",//not working
+          },
+          item: {
+            borderColor: "{colors.supplementary.bgs.mid}",
+            borderWidth: "1px",
+            marginBottom: "3",
+          },
+          itemTrigger: {
+            bgImage: "var(--chakra-colors-color-palette-gradient-default)",
+            _hover: {
+              bgImage: "var(--chakra-colors-color-palette-gradient-hover)",
+            },
+            _open: {
+              borderTopRadius: "var(--accordion-radius)",
+              borderBottomRadius: "0",
+            }
+          }
+        }
+      }
     },
   },
 });
