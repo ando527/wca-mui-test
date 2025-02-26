@@ -355,14 +355,32 @@ const customConfig = defineConfig({
             wcaLink: {
               color: "{colors.blue.solid}",
               fontWeight: "medium",
-              _hover: {
-                color: "{colors.red.solid}",
-              }
             },
           },
           hoverArrow: {
             true: {
-              //implement hoverArrow here
+               position: "relative",
+                paddingRight: "10px",
+              _after: {
+                content: '""',
+                position: "absolute",
+                top: "60%",
+                right: "0",
+                width: "7px",
+                height: "12px",
+                backgroundImage: "url('/static/images/linkArrow.svg')",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+                transform: "translateY(-50%) translateX(-8px)",
+                transition: "all 0.3s ease-in-out",
+                opacity: 0,
+              },
+              _hover: {
+                _after: {
+                  transform: "translateY(-50%) translateX(0px)",
+                  opacity: 1,
+                },
+              },
             }, 
             false: {
               //empty recipe

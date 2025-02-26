@@ -302,7 +302,7 @@ export default function Home() {
         </Card.Root>
         <Heading size="2xl">Links</Heading>
         <Text>
-        Lorem ipsum dolor sit amet, consectetur <Link>adipiscing</Link> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Lorem ipsum dolor sit amet, consectetur <Link hoverArrow="true">adipiscing</Link> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
         Ut enim ad minim veniam, quis nostrud <Link>exercitation<LuExternalLink /></Link> ullamco laboris nisi ut aliquip ex ea commodo consequat. 
         </Text>
       </VStack>
