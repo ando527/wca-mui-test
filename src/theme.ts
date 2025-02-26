@@ -349,12 +349,16 @@ const customConfig = defineConfig({
           transitionProperty: "color",
           transitionTimingFunction: "ease",
           transitionDuration: "200ms",
+          
         },
         variants: {
           variant: {
             wcaLink: {
               color: "{colors.blue.solid}",
               fontWeight: "medium",
+              _hover: {
+                color: "{colors.blue.solid/80}",
+              }
             },
           },
           hoverArrow: {
@@ -376,6 +380,7 @@ const customConfig = defineConfig({
                 opacity: 0,
               },
               _hover: {
+                color: "{colors.blue.solid}",
                 _after: {
                   transform: "translateY(-50%) translateX(0px)",
                   opacity: 1,
