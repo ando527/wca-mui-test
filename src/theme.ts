@@ -96,14 +96,18 @@ const customConfig = defineConfig({
         danger: { value: "{colors.red.50}" },
         warning: { value: "{colors.yellow.50}" },
         success: { value: "{colors.green.100}" },
-        wcawhite: {
-          muted: { value: { _light: "{colors.wcawhite.400}", _dark: "{colors.wcawhite.200}" }, },
+        grey: {
+          solid: { value: { _light: "colors.wcawhite.400", _dark: "colors.wcawhite.200" }, },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
+          fg: { value: "{colors.wcawhite.300}" },
+          muted: { value: "{colors.wcawhite.200/90}" },
+          subtle: { value: "{colors.wcawhite.200}" },
+          emphasized: { value: "{colors.wcawhite.400}" },
+          focusRing: { value:  { _light: "colors.wcawhite.50", _dark: "colors.wcawhite.200" } },
         },
         yellow: {
           solid: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.100" } },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
-          hoverText: { value: "{colors.supplementary.texts.light}" },
           fg: { value: "{colors.yellow.400}" },
           muted: { value: "{colors.yellow.100/90}" },
           subtle: { value: "{colors.yellow.100}" },
@@ -344,20 +348,49 @@ const customConfig = defineConfig({
     },
     slotRecipes: {
       card: {
+        base: {
+          root: {
+            shadow: "{shadows.wca}",
+            colorPalette: "grey",
+          }
+        },
+        defaultVariants: {
+          size: "sm",
+        },
         variants: {
           variant: {
             hero: {
+              body: {
+                bg: "colorPalette.solid",
+                color:  "colorPalette.contrast",
+              }
+            },
+            info: {
               root: {
-                shadow: "{shadows.wca}",
+                overflow: "hidden",
               },
               body: {
                 bg: "colorPalette.solid",
                 color:  "colorPalette.contrast",
-                
+                gap: "4",
+              },
+              title: {
+                fontWeight: "extrabold",
+              },
+              description: {
+                color:  "colorPalette.contrast",
               }
             }
           }
-        }
+        },
+        compoundVariants: [
+          {
+            variant: "info",
+            css: {
+              title: {textStyle: "4xl",}//neeeded to supercede the default textStyle
+            },
+          },
+        ],
       },
       accordion: {
         variants: {

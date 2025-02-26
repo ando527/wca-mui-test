@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert} from "@chakra-ui/react";
+import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, SelectPropsProvider, Box} from "@chakra-ui/react";
 import {AccordionItem, AccordionItemContent, AccordionItemTrigger, AccordionRoot} from "@/components/ui/accordion";
 import {Field} from "@/components/ui/field";
 
@@ -215,6 +215,90 @@ export default function Home() {
                 />
             </GridItem>
         </SimpleGrid>
+        <Text>Basic Box with bento Shadow</Text>
+        <Card.Root>
+            <Card.Body>
+                <Card.Title>
+                    Test
+                </Card.Title>
+                <Card.Description>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </Card.Description>
+            </Card.Body>
+        </Card.Root>
+        <Heading size="4xl">Info Boxes</Heading>
+        <Heading size="2xl">Header and Text only</Heading>
+        <Card.Root variant="info">
+            <Card.Body>
+                <Card.Title>
+                    Test
+                </Card.Title>
+                <Separator size="md" />
+                <Card.Description>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </Card.Description>
+            </Card.Body>
+        </Card.Root>
+        <Heading size="2xl">Header, Text and Image with and without Button</Heading>
+        <SimpleGrid gap={5} columns={6} padding={0} pt={5} width="full">
+        <GridItem colSpan={3}>
+                <Card.Root variant="info" colorPalette="red">
+                    <Image
+                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                        alt="Green double couch with wooden legs"
+                    />
+                    <Card.Body>
+                        <Card.Title>
+                            Test
+                        </Card.Title>
+                        <Separator size="md" />
+                        <Card.Description>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        </Card.Description>
+                    </Card.Body>
+                </Card.Root>
+            </GridItem>
+            <GridItem colSpan={3}>
+                <Card.Root variant="info">
+                    <Image
+                        src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                        alt="Green double couch with wooden legs"
+
+                    />
+                    <Card.Body>
+                        <Card.Title>
+                            Test Heading
+                        </Card.Title>
+                        <Separator size="md" />
+                        <Card.Description>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        </Card.Description>
+                        <Button>Test Button</Button>
+                    </Card.Body>
+                </Card.Root>
+            </GridItem>
+        </SimpleGrid>
+        <Heading size="2xl">Removable Info Box</Heading>
+        <Card.Root variant="info"  flexDirection="row" overflow="hidden" >
+            <Image
+                src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+                alt="Green double couch with wooden legs"
+                maxW="1/3"
+            />
+            <Box>
+                <Card.Body>
+                    <Card.Title>
+                        Test Heading
+                    </Card.Title>
+                    <Separator size="md" />
+                    <Card.Description>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    </Card.Description>
+                    <Button>Test Button</Button>
+                </Card.Body>
+            </Box>
+        </Card.Root>
+
       </VStack>
     </Container>
     );
