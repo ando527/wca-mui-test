@@ -32,6 +32,14 @@ export default function Home() {
             </React.Fragment>
           )}
         </For>
+        <VStack gap="2" align="flex-start">
+            <Heading size="md">Subheading (S2) - "md"</Heading>
+            <Heading size="lg">Subheading (S1) - "lg"</Heading>
+            <Heading size="2xl">Heading (H4) - "2xl"</Heading>
+            <Heading size="3xl">Heading (H3) - "3xl"</Heading>
+            <Heading size="4xl">Heading (H2) - "4xl"</Heading>
+            <Heading size="5xl">Heading (H1) - "5xl"</Heading>
+        </VStack>
       </VStack>
     </Container>
     );
