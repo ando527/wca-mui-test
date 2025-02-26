@@ -1,10 +1,12 @@
 import * as React from 'react';
-import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, SelectPropsProvider, Box} from "@chakra-ui/react";
+import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, SelectPropsProvider, Box, Link} from "@chakra-ui/react";
 import {AccordionItem, AccordionItemContent, AccordionItemTrigger, AccordionRoot} from "@/components/ui/accordion";
 import {Field} from "@/components/ui/field";
 
 import MedalSummaryCard from '@/components/MedalSummaryCard';
 import RecordSummaryCard from '@/components/RecordSummaryCard';
+
+import { LuExternalLink } from "react-icons/lu"
 
 import { GridItem, SimpleGrid } from "@chakra-ui/react";
 
@@ -16,7 +18,7 @@ export default function Home() {
   return (
     <Container maxWidth="breakpoint-lg">
       {/* Page Title */}
-      <Heading>
+      <Heading size="5xl">
         STYLE GUIDE
       </Heading>
       <VStack>
@@ -288,7 +290,7 @@ export default function Home() {
             <Box>
                 <Card.Body>
                     <Card.Title>
-                        Test Heading
+                        Why Compete?
                     </Card.Title>
                     <Separator size="md" />
                     <Card.Description>
@@ -298,7 +300,11 @@ export default function Home() {
                 </Card.Body>
             </Box>
         </Card.Root>
-
+        <Heading size="2xl">Links</Heading>
+        <Text>
+        Lorem ipsum dolor sit amet, consectetur <Link>adipiscing</Link> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud <Link>exercitation<LuExternalLink /></Link> ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        </Text>
       </VStack>
     </Container>
     );

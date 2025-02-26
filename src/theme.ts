@@ -344,6 +344,27 @@ const customConfig = defineConfig({
           }
         }
       },
+      link: {
+        base: {
+          transitionProperty: "color",
+          transitionTimingFunction: "ease",
+          transitionDuration: "200ms",
+        },
+        variants: {
+          variant: {
+            wcaLink: {
+              color: "{colors.blue.solid}",
+              fontWeight: "medium",
+              _hover: {
+                color: "{colors.red.solid}",
+              }
+            }
+          }
+        },
+        defaultVariants: {
+          variant: "wcaLink",
+        }
+      }
       
     },
     slotRecipes: {
