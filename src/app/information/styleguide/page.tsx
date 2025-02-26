@@ -47,7 +47,7 @@ export default function Home() {
 
         <Text >Hero Profile Info</Text>
         <Flex gap="2">
-            <Card.Root maxW="sm" overflow="hidden" variant="elevated" colorPalette="green">
+            <Card.Root maxW="sm" overflow="hidden" variant="hero" colorPalette="green">
                 <Image
                     src="https://avatars.worldcubeassociation.org/uploads/user/avatar/2014PRID01/1651581622.PNG"
                     alt="Ethan Pride Profile Photo"
@@ -66,7 +66,7 @@ export default function Home() {
                 </Card.Body>
             </Card.Root>
 
-            <Card.Root maxW="sm" overflow="hidden" variant="elevated" colorPalette="blue">
+            <Card.Root maxW="sm" overflow="hidden" variant="hero" colorPalette="blue">
                 <Image
                     src="https://avatars.worldcubeassociation.org/uploads/user/avatar/2019JARM01/1686450645.jpg"
                     alt="Kerri Jarman Profile Photo"
@@ -85,7 +85,7 @@ export default function Home() {
                 </Card.Body>
             </Card.Root>
 
-            <Card.Root maxW="sm" overflow="hidden" variant="elevated" colorPalette="yellow">
+            <Card.Root maxW="sm" overflow="hidden" variant="hero" colorPalette="yellow">
                 <Image
                     src="https://avatars.worldcubeassociation.org/uploads/user/avatar/2016SILV08/1713202675.jpg"
                     alt="Nick Silvestri Profile Photo"
@@ -106,7 +106,7 @@ export default function Home() {
         </Flex>
 
         <Text>Sample FAQs (Accordion)</Text>
-        <AccordionRoot collapsible variant="subtle" width="8xl">
+        <AccordionRoot multiple collapsible variant="subtle" width="full">
           <AccordionItem value="wca-id">
             <AccordionItemTrigger colorPalette="blue">
               How do I obtain a WCA ID and a WCA profile?
