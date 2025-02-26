@@ -358,11 +358,20 @@ const customConfig = defineConfig({
               _hover: {
                 color: "{colors.red.solid}",
               }
+            },
+          },
+          hoverArrow: {
+            true: {
+              //implement hoverArrow here
+            }, 
+            false: {
+              //empty recipe
             }
           }
         },
         defaultVariants: {
           variant: "wcaLink",
+          hoverArrow: "false",
         }
       }
       
