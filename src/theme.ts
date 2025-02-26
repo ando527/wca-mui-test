@@ -365,8 +365,6 @@ const customConfig = defineConfig({
             subtle: {
               root: {
                 "--accordion-radius": "radii.l3",
-                transitionProperty: "background, border",//not working
-                transitionTimingFunction: "ease",//not working
               },
               item: {
                 borderColor: "{colors.supplementary.bgs.mid}",
@@ -377,6 +375,9 @@ const customConfig = defineConfig({
                 },
               },
               itemTrigger: {
+                transitionProperty: "borderBottomRadius, background",//not working
+                transitionTimingFunction: "ease",//not working
+                transitionDuration: "2000ms",
                 _hover: {
                   bgImage: "var(--chakra-colors-color-palette-gradient-hover)",
                 },
