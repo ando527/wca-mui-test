@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from "@chakra-ui/react";
-import { Stat, StatGroup } from "@chakra-ui/react";
+import { Stat, Flex } from "@chakra-ui/react";
 
 interface RecordSummaryCardProps {
   world: number;
@@ -10,29 +10,32 @@ interface RecordSummaryCardProps {
 
 const RecordSummaryCard: React.FC<RecordSummaryCardProps> = ({ world, continental, national }) => {
   return (
-    <Card.Root bg="wcagreen.solid" color="wcagreen.contrast" shadow="wca">
+    <Card.Root bg="green.solid" color="green.contrast" shadow="wca">
       <Card.Body>
         <Card.Title>Record Collection</Card.Title>
-        <StatGroup size="lg">
+        <Flex align="start">
           {world > 0 && (
             <Stat.Root>
-              <Stat.ValueText>{world}</Stat.ValueText>
-              <Stat.Label color="wcagreen.contrast">World</Stat.Label>
+              <Stat.ValueText alignItems="baseline">
+                {world}<Stat.ValueUnit color="green.contrast">World</Stat.ValueUnit>
+              </Stat.ValueText>
             </Stat.Root>
           )}
           {continental > 0 && (
             <Stat.Root>
-              <Stat.ValueText>{continental}</Stat.ValueText>
-              <Stat.Label color="wcagreen.contrast">Continental</Stat.Label>
+              <Stat.ValueText alignItems="baseline">
+                {continental}<Stat.ValueUnit color="green.contrast">Continental</Stat.ValueUnit>
+              </Stat.ValueText>
             </Stat.Root>
           )}
           {national > 0 && (
             <Stat.Root>
-              <Stat.ValueText>{national}</Stat.ValueText>
-              <Stat.Label color="wcagreen.contrast">National</Stat.Label>
+              <Stat.ValueText alignItems="baseline">
+                {national}<Stat.ValueUnit color="green.contrast">National</Stat.ValueUnit>
+              </Stat.ValueText>
             </Stat.Root>
           )}
-        </StatGroup>
+        </Flex>
       </Card.Body>
     </Card.Root>
   );

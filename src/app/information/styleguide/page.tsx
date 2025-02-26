@@ -3,6 +3,9 @@ import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image
 import {AccordionItem, AccordionItemContent, AccordionItemTrigger, AccordionRoot} from "@/components/ui/accordion";
 import {Field} from "@/components/ui/field";
 
+import MedalSummaryCard from '@/components/MedalSummaryCard';
+import RecordSummaryCard from '@/components/RecordSummaryCard';
+
 
 const buttonVariants = ['solid', 'ghost', 'outline', 'plain', 'subtle'];
 const wcaColors = ["blue", "green", "red", "orange", "yellow"];
@@ -193,7 +196,17 @@ export default function Home() {
                 <Alert.Title>Your payment information never reaches the WCA website. It is securely sent to Stripe, which handles the payment process and gets back to us.</Alert.Title>
             </Alert.Root>
         </VStack>
-
+        <Text>Medal and Record Boxes</Text>
+        <MedalSummaryCard
+                gold={4}
+                silver={65}
+                bronze={813}
+              />
+        <RecordSummaryCard
+                world={5}
+                continental={55}
+                national={301}
+              />
       </VStack>
     </Container>
     );
