@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input} from "@chakra-ui/react";
+import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert} from "@chakra-ui/react";
 import {AccordionItem, AccordionItemContent, AccordionItemTrigger, AccordionRoot} from "@/components/ui/accordion";
 import {Field} from "@/components/ui/field";
 
@@ -166,6 +166,33 @@ export default function Home() {
             </AccordionItemContent>
           </AccordionItem>
         </AccordionRoot>
+
+        <Text>Alerts</Text>
+        <VStack gap="4" width="full">
+            <Alert.Root status="error">
+                <Alert.Indicator />
+                <Alert.Title>There was an error processing your request</Alert.Title>
+            </Alert.Root>
+
+            <Alert.Root status="info">
+                <Alert.Indicator />
+                <Alert.Title>
+                Chakra is going live on August 30th. Get ready!
+                </Alert.Title>
+            </Alert.Root>
+
+            <Alert.Root status="warning">
+                <Alert.Indicator />
+                <Alert.Title>
+                Seems your account is about expire, upgrade now
+                </Alert.Title>
+            </Alert.Root>
+
+            <Alert.Root status="success">
+                <Alert.Indicator />
+                <Alert.Title>Your payment information never reaches the WCA website. It is securely sent to Stripe, which handles the payment process and gets back to us.</Alert.Title>
+            </Alert.Root>
+        </VStack>
 
       </VStack>
     </Container>
