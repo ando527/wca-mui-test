@@ -6,6 +6,8 @@ import {Field} from "@/components/ui/field";
 import MedalSummaryCard from '@/components/MedalSummaryCard';
 import RecordSummaryCard from '@/components/RecordSummaryCard';
 
+import { GridItem, SimpleGrid } from "@chakra-ui/react";
+
 
 const buttonVariants = ['solid', 'ghost', 'outline', 'plain', 'subtle'];
 const wcaColors = ["blue", "green", "red", "orange", "yellow"];
@@ -197,18 +199,22 @@ export default function Home() {
             </Alert.Root>
         </VStack>
         <Text>Medal and Record Boxes</Text>
-        <Flex gap="4">
+        <SimpleGrid gap={5} columns={6} padding={0} pt={5} width="full">
+            <GridItem colSpan={3}>
             <MedalSummaryCard
                     gold={4}
                     silver={65}
                     bronze={813}
                 />
+            </GridItem>
+            <GridItem colSpan={3}>
             <RecordSummaryCard
                     world={5}
                     continental={55}
                     national={301}
                 />
-        </Flex>
+            </GridItem>
+        </SimpleGrid>
       </VStack>
     </Container>
     );
