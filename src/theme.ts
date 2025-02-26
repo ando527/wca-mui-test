@@ -301,9 +301,47 @@ const customConfig = defineConfig({
           variant: "solid",
           size: "lg",
         },
-      }
-    }
+      },
+      heading: {
+        base: {
 
+        },
+        variants: {
+          size: {
+            sm: {
+              fontWeight: "medium",//Not used in styleguide
+            },
+            md: {
+              fontWeight: "medium",//Subheading 2
+              textStyle: "lg",//same size as lg, just thinner
+            },
+            lg: {
+              fontWeight: "bold",//Subheading 1
+            },
+            xl: {
+              fontWeight: "bold",//Not used in styleguide
+            },
+            "2xl": {
+              fontWeight: "extrabold",//H4
+            },
+            "3xl": {
+              fontWeight: "extrabold",//H3
+            },
+            "4xl": {
+              fontWeight: "extrabold",//H2
+            },
+            "5xl": {
+              fontWeight: "extrabold",//H1
+              textTransform: "uppercase"
+            },
+            "6xl": {
+              fontWeight: "extrabold",//Not used in styleguide
+            }
+          }
+        }
+      },
+      
+    },
   },
 });
 
