@@ -342,6 +342,17 @@ const customConfig = defineConfig({
       },
       
     },
+    slotRecipes: {
+      card: {
+        slots: ["root", "header", "body", "footer", "title", "description"],
+        base: {
+          body: {
+            bg: "colorPalette.solid",
+            color:  "colorPalette.contrast",
+          }
+        }
+      },
+    },
   },
 });
 
