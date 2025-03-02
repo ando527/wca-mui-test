@@ -1,5 +1,5 @@
 import React from 'react';
-import {Stat, Card, Flex, Heading, Text, Float, Icon} from "@chakra-ui/react";
+import {Stat, Card, Heading, Text, Float, Icon, StatGroup} from "@chakra-ui/react";
 import {LuMedal} from "react-icons/lu";
 
 interface MedalSummaryCardProps {
@@ -18,29 +18,29 @@ const MedalSummaryCard: React.FC<MedalSummaryCardProps> = ({ gold, silver, bronz
             </Float>
       <Card.Body>
         <Card.Title><Text fontSize="md" textTransform="uppercase" fontWeight="medium" letterSpacing="wider">Medal Collection</Text></Card.Title>
-        <Flex align="start" gap="3">
+        <StatGroup justifyContent="start" flexDirection="row" gap="5">
           {gold > 0 && (
-            <Stat.Root>
+            <Stat.Root flex="0">
               <Stat.ValueText alignItems="baseline">
                 <Heading size="3xl">{gold}</Heading><Stat.ValueUnit color="yellow.contrast">Gold</Stat.ValueUnit>
               </Stat.ValueText>
             </Stat.Root>
           )}
           {silver > 0 && (
-            <Stat.Root>
+            <Stat.Root flex="0">
               <Stat.ValueText alignItems="baseline">
               <Heading size="3xl">{silver}</Heading><Stat.ValueUnit color="yellow.contrast">Silver</Stat.ValueUnit>
               </Stat.ValueText>
             </Stat.Root>
           )}
           {bronze > 0 && (
-            <Stat.Root>
+            <Stat.Root flex="0">
               <Stat.ValueText alignItems="baseline">
               <Heading size="3xl">{bronze}</Heading><Stat.ValueUnit color="yellow.contrast">Bronze</Stat.ValueUnit>
               </Stat.ValueText>
             </Stat.Root>
           )}
-        </Flex>
+        </StatGroup>
       </Card.Body>
     </Card.Root>
   );

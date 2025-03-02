@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card } from "@chakra-ui/react";
-import { Stat, Flex, Heading, Text, Float, Icon } from "@chakra-ui/react";
+import { Stat, Heading, Text, Float, Icon, StatGroup } from "@chakra-ui/react";
 import {LuAward} from "react-icons/lu";
 
 interface RecordSummaryCardProps {
@@ -19,29 +19,29 @@ const RecordSummaryCard: React.FC<RecordSummaryCardProps> = ({ world, continenta
       </Float>
       <Card.Body>
         <Card.Title><Text fontSize="md" textTransform="uppercase" fontWeight="medium" letterSpacing="wider">Record Collection</Text></Card.Title>
-        <Flex align="start"  gap="3">
+        <StatGroup justifyContent="start" flexDirection="row" gap="5">
           {world > 0 && (
-            <Stat.Root>
+            <Stat.Root flex="0">
               <Stat.ValueText alignItems="baseline">
                 <Heading size="3xl">{world}</Heading><Stat.ValueUnit color="green.contrast">World</Stat.ValueUnit>
               </Stat.ValueText>
             </Stat.Root>
           )}
           {continental > 0 && (
-            <Stat.Root>
+            <Stat.Root flex="0">
               <Stat.ValueText alignItems="baseline">
                 <Heading size="3xl">{continental}</Heading><Stat.ValueUnit color="green.contrast">Continental</Stat.ValueUnit>
               </Stat.ValueText>
             </Stat.Root>
           )}
           {national > 0 && (
-            <Stat.Root>
+            <Stat.Root flex="0">
               <Stat.ValueText alignItems="baseline">
                 <Heading size="3xl">{national}</Heading><Stat.ValueUnit color="green.contrast">National</Stat.ValueUnit>
               </Stat.ValueText>
             </Stat.Root>
           )}
-        </Flex>
+        </StatGroup>
       </Card.Body>
     </Card.Root>
   );
