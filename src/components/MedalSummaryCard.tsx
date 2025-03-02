@@ -10,7 +10,7 @@ interface MedalSummaryCardProps {
 
 const MedalSummaryCard: React.FC<MedalSummaryCardProps> = ({ gold, silver, bronze }) => {
   return (
-    <Card.Root bg="yellow.solid" color="yellow.contrast" shadow="wca" border="none" overflow="hidden">
+    <Card.Root variant="hero" colorPalette="yellow" overflow="hidden">
       <Float placement="middle-end" offsetX="8">
               <Icon fontSize="10rem" color="yellow.100" opacity="0.3">
                 <LuMedal />
