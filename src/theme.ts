@@ -363,8 +363,8 @@ const customConfig = defineConfig({
           },
           hoverArrow: {
             true: {
-               position: "relative",
-                paddingRight: "10px",
+              position: "relative",
+              paddingRight: "10px",
               _after: {
                 content: '""',
                 position: "absolute",
