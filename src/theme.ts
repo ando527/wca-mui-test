@@ -6,6 +6,20 @@ import "leaflet/dist/leaflet.css";
 
 const customConfig = defineConfig({
   theme: {
+    keyframes: {
+      slideInGradient: {
+        "0%": { backgroundSize: "0% 100%"},
+        "100%": {backgroundSize: "100% 100%"},
+      },
+      slideOutGradient: {
+        "0%": { backgroundSize: "100% 100%"},
+        "100%": {backgroundSize: "0% 100%"},
+      },
+      dontSlideGradient: {
+        "0%": { backgroundSize: "100% 100%"},
+        "100%": {backgroundSize: "100% 100%"},
+      },
+    },
     tokens: {
       colors: {
         blue: {
@@ -461,16 +475,24 @@ const customConfig = defineConfig({
                 },
               },
               itemTrigger: {
-                transitionProperty: "borderBottomRadius, background",//not working
-                transitionTimingFunction: "ease",//not working
-                transitionDuration: "2000ms",
+                bgImage: "var(--chakra-colors-color-palette-gradient-hover)",
+                backgroundSize: "0% 100%", // Ensures the gradient fills the element
+                backgroundRepeat: "no-repeat",
+                backgroundPosition: "-100% 0%",
+                animation: "slideOutGradient 0.25s ease-in-out forwards",
                 _hover: {
-                  bgImage: "var(--chakra-colors-color-palette-gradient-hover)",
+                  animation: "slideInGradient 0.25s ease-in-out forwards",
                 },
                 _open: {
                   bgImage: "var(--chakra-colors-color-palette-gradient-default)",
                   borderTopRadius: "var(--accordion-radius)",
                   borderBottomRadius: "0",
+                  backgroundSize: "100% 100%",
+                  animation: "dontSlideGradient 0.25s ease-in-out forwards",
+                  _hover: {
+                    bgImage: "var(--chakra-colors-color-palette-gradient-hover)",
+                    animation: "dontSlideGradient 0.25s ease-in-out forwards",
+                  }
                 }
               }
             }
