@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, SelectPropsProvider, Box, Link} from "@chakra-ui/react";
+import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, Badge, Box, Link, Wrap} from "@chakra-ui/react";
 import {AccordionItem, AccordionItemContent, AccordionItemTrigger, AccordionRoot} from "@/components/ui/accordion";
 import {Field} from "@/components/ui/field";
 
@@ -7,6 +7,12 @@ import MedalSummaryCard from '@/components/MedalSummaryCard';
 import RecordSummaryCard from '@/components/RecordSummaryCard';
 
 import { LuExternalLink } from "react-icons/lu"
+import {LuMedal} from "react-icons/lu";
+import { LuTimer } from "react-icons/lu";
+import { LuTrophy } from "react-icons/lu";
+import { LuStar } from "react-icons/lu";
+
+
 
 import { GridItem, SimpleGrid } from "@chakra-ui/react";
 
@@ -305,6 +311,25 @@ export default function Home() {
         Lorem ipsum dolor sit amet, consectetur <Link hoverArrow="true">adipiscing</Link> elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
         Ut enim ad minim veniam, quis nostrud <Link>exercitation<LuExternalLink /></Link> ullamco laboris nisi ut aliquip ex ea commodo consequat. 
         </Text>
+        <Heading size="2xl">Profile Achievements</Heading>
+        <Wrap maxW="sm">
+            <Badge variant="achievement">
+                <LuMedal />
+                4 Gold Medals
+            </Badge>
+            <Badge variant="achievement">
+                <LuTimer />
+                10 Year Career
+            </Badge>
+            <Badge variant="achievement">
+                <LuTrophy />
+                Current World Champion
+            </Badge>
+            <Badge variant="achievement">
+                <LuStar />
+                Current World Record Holder
+            </Badge>
+        </Wrap>
       </VStack>
     </Container>
     );

@@ -396,6 +396,31 @@ const customConfig = defineConfig({
           variant: "wcaLink",
           hoverArrow: "false",
         }
+      },
+      badge: {
+        variants: {
+          variant: {
+            achievement: {
+              bg: "transparent",
+              color:"fg",
+              fontWeight: "bold",
+              gap: "2",
+              mr: "2.5",
+            }
+          }
+        },
+        compoundVariants: [
+          {
+            variant: "achievement",
+            css: {
+              textStyle: "lg",//needed to supercede the default textStyle
+              "svg": {
+                height: "1.25em",
+                width: "1.25em"
+              }
+            },
+          },
+        ],
       }
       
     },
@@ -440,7 +465,7 @@ const customConfig = defineConfig({
           {
             variant: "info",
             css: {
-              title: {textStyle: "4xl",}//neeeded to supercede the default textStyle
+              title: {textStyle: "4xl",}//needed to supercede the default textStyle
             },
           },
         ],
