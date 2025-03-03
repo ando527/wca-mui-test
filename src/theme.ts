@@ -96,14 +96,18 @@ const customConfig = defineConfig({
         danger: { value: "{colors.red.50}" },
         warning: { value: "{colors.yellow.50}" },
         success: { value: "{colors.green.100}" },
-        wcawhite: {
-          muted: { value: { _light: "{colors.wcawhite.400}", _dark: "{colors.wcawhite.200}" }, },
+        grey: {
+          solid: { value: { _light: "colors.wcawhite.400", _dark: "colors.wcawhite.200" }, },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
+          fg: { value: "{colors.wcawhite.300}" },
+          muted: { value: "{colors.wcawhite.200/90}" },
+          subtle: { value: "{colors.wcawhite.200}" },
+          emphasized: { value: "{colors.wcawhite.400}" },
+          focusRing: { value:  { _light: "colors.wcawhite.50", _dark: "colors.wcawhite.200" } },
         },
         yellow: {
           solid: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.100" } },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
-          hoverText: { value: "{colors.supplementary.texts.light}" },
           fg: { value: "{colors.yellow.400}" },
           muted: { value: "{colors.yellow.100/90}" },
           subtle: { value: "{colors.yellow.100}" },
@@ -340,24 +344,106 @@ const customConfig = defineConfig({
           }
         }
       },
+      link: {
+        base: {
+          transitionProperty: "color",
+          transitionTimingFunction: "ease",
+          transitionDuration: "200ms",
+          
+        },
+        variants: {
+          variant: {
+            wcaLink: {
+              color: "{colors.blue.solid}",
+              fontWeight: "medium",
+              _hover: {
+                color: "{colors.blue.solid/80}",
+              }
+            },
+          },
+          hoverArrow: {
+            true: {
+              position: "relative",
+              paddingRight: "10px",
+              _after: {
+                content: '""',
+                position: "absolute",
+                top: "60%",
+                right: "0",
+                width: "7px",
+                height: "12px",
+                backgroundImage: "url('/static/images/linkArrow.svg')",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "contain",
+                transform: "translateY(-50%) translateX(-8px)",
+                transition: "all 0.3s ease-in-out",
+                opacity: 0,
+              },
+              _hover: {
+                color: "{colors.blue.solid}",
+                _after: {
+                  transform: "translateY(-50%) translateX(0px)",
+                  opacity: 1,
+                },
+              },
+            }, 
+            false: {
+              //empty recipe
+            }
+          }
+        },
+        defaultVariants: {
+          variant: "wcaLink",
+          hoverArrow: "false",
+        }
+      }
       
     },
     slotRecipes: {
       card: {
+        base: {
+          root: {
+            shadow: "{shadows.wca}",
+            colorPalette: "grey",
+          }
+        },
+        defaultVariants: {
+          size: "sm",
+        },
         variants: {
           variant: {
             hero: {
+              body: {
+                bg: "colorPalette.solid",
+                color:  "colorPalette.contrast",
+              }
+            },
+            info: {
               root: {
-                shadow: "{shadows.wca}",
+                overflow: "hidden",
               },
               body: {
                 bg: "colorPalette.solid",
                 color:  "colorPalette.contrast",
-                
+                gap: "4",
+              },
+              title: {
+                fontWeight: "extrabold",
+              },
+              description: {
+                color:  "colorPalette.contrast",
               }
             }
           }
-        }
+        },
+        compoundVariants: [
+          {
+            variant: "info",
+            css: {
+              title: {textStyle: "4xl",}//neeeded to supercede the default textStyle
+            },
+          },
+        ],
       },
       accordion: {
         variants: {
@@ -365,8 +451,6 @@ const customConfig = defineConfig({
             subtle: {
               root: {
                 "--accordion-radius": "radii.l3",
-                transitionProperty: "background, border",//not working
-                transitionTimingFunction: "ease",//not working
               },
               item: {
                 borderColor: "{colors.supplementary.bgs.mid}",
@@ -377,6 +461,9 @@ const customConfig = defineConfig({
                 },
               },
               itemTrigger: {
+                transitionProperty: "borderBottomRadius, background",//not working
+                transitionTimingFunction: "ease",//not working
+                transitionDuration: "2000ms",
                 _hover: {
                   bgImage: "var(--chakra-colors-color-palette-gradient-hover)",
                 },
