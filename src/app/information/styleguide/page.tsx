@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, Badge, Box, Link} from "@chakra-ui/react";
+import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, Badge, Box, Link, Wrap} from "@chakra-ui/react";
 import {AccordionItem, AccordionItemContent, AccordionItemTrigger, AccordionRoot} from "@/components/ui/accordion";
 import {Field} from "@/components/ui/field";
 
@@ -312,7 +312,7 @@ export default function Home() {
         Ut enim ad minim veniam, quis nostrud <Link>exercitation<LuExternalLink /></Link> ullamco laboris nisi ut aliquip ex ea commodo consequat. 
         </Text>
         <Heading size="2xl">Profile Achievements</Heading>
-        <Flex>
+        <Wrap maxW="sm">
             <Badge variant="achievement">
                 <LuMedal />
                 4 Gold Medals
@@ -329,7 +329,7 @@ export default function Home() {
                 <LuStar />
                 Current World Record Holder
             </Badge>
-        </Flex>
+        </Wrap>
       </VStack>
     </Container>
     );
