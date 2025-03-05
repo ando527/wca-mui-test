@@ -44,11 +44,11 @@ const PersonalRecordsTable: React.FC<RecordsProps> = ({ records }) => {
   };
 
   return (
-    <Card.Root bg="bg.inverted" color="fg.inverted" shadow="wca">
+    <Card.Root bg="bg.inverted" color="fg.inverted" shadow="wca" overflow="none" width="full">
       <Card.Body p={0}>
-        <Card.Title p={5}>Current Personal Records</Card.Title>
+        <Card.Title p={5} fontSize="md" textTransform="uppercase" fontWeight="medium" letterSpacing="wider">Current Personal Records</Card.Title>
         {/* Tables don't seem to inherit styles correctly, normally all the extra bg and fg shouldn't be necessary */}
-        <Table.Root size="sm" striped rounded="md">
+        <Table.Root size="sm" striped rounded="md" variant="results">
           <Table.Header>
             <Table.Row bg="bg.inverted">
               <Table.ColumnHeader color="fg.inverted">Event</Table.ColumnHeader>
@@ -85,25 +85,25 @@ const PersonalRecordsTable: React.FC<RecordsProps> = ({ records }) => {
                       {eventMap[record.event]}
                     </Flex>
                   </Table.Cell>
-                  <Table.Cell color={record.snr < 11 ? "wcagreen.emphasized" : "fg.inverted" } fontWeight={record.snr < 11 ? "600" : "400"} textAlign="right">{record.snr}</Table.Cell>
-                  <Table.Cell color={record.scr < 11 ? "wcagreen.emphasized" : "fg.inverted"} fontWeight={record.scr < 11 ? "600" : "400"} textAlign="right">{record.scr}</Table.Cell>
-                  <Table.Cell color={record.swr < 11 ? "wcagreen.emphasized" : "fg.inverted"} fontWeight={record.swr < 11 ? "600" : "400"} textAlign="right">{record.swr}</Table.Cell>
+                  <Table.Cell color={record.snr < 11 ? "recordColors.national" : "fg.inverted" } fontWeight={record.snr < 11 ? "600" : "400"} textAlign="right">{record.snr}</Table.Cell>
+                  <Table.Cell color={record.scr < 11 ? "recordColors.national" : "fg.inverted"} fontWeight={record.scr < 11 ? "600" : "400"} textAlign="right">{record.scr}</Table.Cell>
+                  <Table.Cell color={record.swr < 11 ? "recordColors.national" : "fg.inverted"} fontWeight={record.swr < 11 ? "600" : "400"} textAlign="right">{record.swr}</Table.Cell>
                   <Table.Cell color="fg.inverted" fontWeight={600} textAlign="right">{record.single}</Table.Cell>
                   <Table.Cell color="fg.inverted" fontWeight={600}>{record.average !== 0 ? record.average : ""}</Table.Cell>
                   <Table.Cell
-                    color={record.awr !== 0 && record.awr < 11 ? "wcagreen.emphasized" : "fg.inverted"}
+                    color={record.awr !== 0 && record.awr < 11 ? "recordColors.national" : "fg.inverted"}
                     fontWeight={record.awr !== 0 && record.awr < 11 ? "600" : "400"}
                   >
                     {record.awr !== 0 ? record.awr : ""}
                   </Table.Cell>                   
                   <Table.Cell
-                    color={record.acr !== 0 && record.acr < 11 ? "wcagreen.emphasized" : "fg.inverted"}
+                    color={record.acr !== 0 && record.acr < 11 ? "recordColors.national" : "fg.inverted"}
                     fontWeight={record.acr !== 0 && record.acr < 11 ? "600" : "400"}
                   >
                     {record.acr !== 0 ? record.acr : ""}
                   </Table.Cell> 
                   <Table.Cell
-                    color={record.anr !== 0 && record.anr < 11 ? "wcagreen.emphasized" : "fg.inverted"}
+                    color={record.anr !== 0 && record.anr < 11 ? "recordColors.national" : "fg.inverted"}
                     fontWeight={record.anr !== 0 && record.anr < 11 ? "600" : "400"}
                   >
                     {record.anr !== 0 ? record.anr : ""}

@@ -110,6 +110,12 @@ const customConfig = defineConfig({
         danger: { value: "{colors.red.50}" },
         warning: { value: "{colors.yellow.50}" },
         success: { value: "{colors.green.100}" },
+        recordColors: {
+          personal: { value: "{colors.orange.50}"},
+          national: { value: "{colors.green.50}"},
+          continental: { value: "{colors.red.50}"},
+          world: { value: "{colors.blue.50}"},
+        },
         grey: {
           solid: { value: { _light: "colors.wcawhite.400", _dark: "colors.wcawhite.200" }, },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
@@ -522,6 +528,18 @@ const customConfig = defineConfig({
               }
             }
           },
+        }
+      },
+      table: {
+        variants: {
+          variant: {
+            results: {
+              cell: {
+                padding: "0",
+              },
+              
+            }
+          }
         }
       }
     },
