@@ -67,10 +67,10 @@ export default function Footer() {
             </Link>
         </HStack>
 
-        <Image src="/static/images/logo.png" alt="WCA Logo" height={50} width={50}/>          
         {/* Footer Links */}
         <HStack gap={5}>
-          
+        <Image src="/static/images/logo.png" alt="WCA Logo" height={50} width={50}/>          
+
           <Button asChild variant="ghost" size="sm" fontSize="md">
             <Link href="/about" variant="plainLink">About Us</Link>
           </Button>
