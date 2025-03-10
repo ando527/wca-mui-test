@@ -5,13 +5,12 @@ import {
   Center,
   HStack,
   IconButton,
-  Link as ChakraLink,
-  Image as ChakraImage,
+  Button,
+  Image,
+  Link,
   VStack
 } from "@chakra-ui/react";
 import {LuFacebook, LuGithub, LuInstagram, LuTwitter, LuYoutube} from "react-icons/lu";
-import Link from "next/link";
-import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -19,86 +18,83 @@ export default function Footer() {
       <VStack>
         {/* Social Media Icons */}
         <HStack>
-          <ChakraLink asChild>
+
             <Link
                 href="https://instagram.com"
                 target="_blank"
+                variant="plainLink"
             >
               <IconButton variant="ghost">
                 <LuInstagram/>
               </IconButton>
             </Link>
-          </ChakraLink>
-          <ChakraLink asChild>
+
             <Link
                 href="https://facebook.com"
                 target="_blank"
+                variant="plainLink"
             >
               <IconButton variant="ghost">
                 <LuFacebook/>
               </IconButton>
             </Link>
-          </ChakraLink>
-          <ChakraLink asChild>
             <Link
                 href="https://twitter.com"
                 target="_blank"
+                variant="plainLink"
             >
               <IconButton variant="ghost">
                 <LuTwitter/>
               </IconButton>
             </Link>
-          </ChakraLink>
-          <ChakraLink asChild>
             <Link
                 href="https://github.com"
                 target="_blank"
+                variant="plainLink"
             >
               <IconButton variant="ghost">
                 <LuGithub/>
               </IconButton>
             </Link>
-          </ChakraLink>
-          <ChakraLink asChild>
             <Link
                 href="https://youtube.com"
                 target="_blank"
+                variant="plainLink"
             >
               <IconButton variant="ghost">
                 <LuYoutube/>
               </IconButton>
             </Link>
-          </ChakraLink>
         </HStack>
 
+        <Image src="/static/images/logo.png" alt="WCA Logo" height={50} width={50}/>          
         {/* Footer Links */}
         <HStack gap={5}>
-          <ChakraImage asChild>
-            <Image src="/static/images/logo.png" alt="WCA Logo" height={50} width={50}/>
-          </ChakraImage>
-          <ChakraLink asChild>
-            <Link href="/about">About Us</Link>
-          </ChakraLink>
-          <ChakraLink asChild>
-            <Link href="/faqs">FAQs</Link>
-          </ChakraLink>
-          <ChakraLink asChild>
-            <Link href="/contact">Contact</Link>
-          </ChakraLink>
-          <ChakraLink asChild>
+          
+          <Button asChild variant="ghost" size="sm" fontSize="md">
+            <Link href="/about" variant="plainLink">About Us</Link>
+          </Button>
+          <Button asChild variant="ghost" size="sm" fontSize="md">
+            <Link href="/faqs" variant="plainLink">FAQs</Link>
+          </Button>
+          <Button asChild variant="ghost" size="sm" fontSize="md">
+            <Link href="/contact" variant="plainLink">Contact</Link>
+          </Button>
+          <Button asChild variant="ghost" size="sm" fontSize="md">
             <Link
               href="https://github.com"
               target="_blank"
+              variant="plainLink"
             >
               GitHub
             </Link>
-          </ChakraLink>
-          <ChakraLink asChild>
-            <Link href="/privacy">Privacy</Link>
-          </ChakraLink>
-          <ChakraLink asChild>
-            <Link href="/disclaimer">Disclaimer</Link>
-          </ChakraLink>
+          </Button>
+          <Button asChild variant="ghost" size="sm" fontSize="md">
+            <Link href="/privacy" variant="plainLink">Privacy</Link>
+          </Button>
+          <Button asChild variant="ghost" size="sm" fontSize="md">
+            <Link href="/disclaimer" variant="plainLink">Disclaimer</Link>
+          </Button>
         </HStack>
       </VStack>
 

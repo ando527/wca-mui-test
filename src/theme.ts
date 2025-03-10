@@ -167,6 +167,7 @@ const customConfig = defineConfig({
         },
         blue: { 
           solid: { value:  { _light: "colors.blue.50", _dark: "colors.blue.100" } },
+          highContrast: { value:  { _light: "colors.blue.50", _dark: "colors.blue.300" } },
           contrast: { value: "{colors.supplementary.texts.light}" },
           fg: { value: "{colors.blue.400}" },
           muted: { value: "{colors.blue.100/90}" },
@@ -368,12 +369,19 @@ const customConfig = defineConfig({
         variants: {
           variant: {
             wcaLink: {
-              color: "{colors.blue.solid}",
+              color: "{colors.blue.highContrast}",
               fontWeight: "medium",
               _hover: {
-                color: "{colors.blue.solid/80}",
+                color: "{colors.blue.highContrast/80}",
               }
             },
+            plainLink: {
+              color: "{fg.inverse}",
+              fontWeight: "medium",
+              _hover: {
+                color: "{colors.blue.highContrast}",
+              }
+            }
           },
           hoverArrow: {
             true: {
@@ -394,7 +402,7 @@ const customConfig = defineConfig({
                 opacity: 0,
               },
               _hover: {
-                color: "{colors.blue.solid}",
+                color: "{colors.blue.highContrast}",
                 _after: {
                   transform: "translateY(-50%) translateX(0px)",
                   opacity: 1,
