@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, Badge, Box, Link, Wrap} from "@chakra-ui/react";
+import {Button, Heading, Text, For, HStack, Container, VStack, Flex, Card, Image, Input, Alert, Separator, Badge, Box, Table, Link, Wrap} from "@chakra-ui/react";
 import {AccordionItem, AccordionItemContent, AccordionItemTrigger, AccordionRoot} from "@/components/ui/accordion";
 import PersonalRecordsTable from '@/components/PersonalRecordsTable';
 import {Field} from "@/components/ui/field";
 
 import MedalSummaryCard from '@/components/MedalSummaryCard';
 import RecordSummaryCard from '@/components/RecordSummaryCard';
+import CompetitionTableEntry from '@/components/CompetitionTableEntry';
 
 import { LuExternalLink } from "react-icons/lu"
 import {LuMedal} from "react-icons/lu";
@@ -32,6 +33,23 @@ interface RecordItem {
     acr: number;
     awr: number;
 }
+
+const testCompData = [
+  {name: "Michigan Mini 29 2025",
+    id: "MichiganMini292025",
+    dateStart: new Date('2025-03-13'),
+    dateEnd: new Date('2025-03-13'),
+    city: "Plymouth, Michigan",
+    country: "US",
+    regoStatus: "closed"},
+  {name: "Test2",
+    id: "Test",
+    dateStart: new Date('2025-03-14'),
+    dateEnd: new Date('2025-03-15'),
+    city: "Test",
+    country: "Test",
+    regoStatus: "open"}
+];
 
 const transformPersonalRecords = (personalRecords: any): RecordItem[] => {
     const eventOrder = [
@@ -451,6 +469,19 @@ export default async function Home() {
             </Badge>
         </Wrap>
         <PersonalRecordsTable records={transformPersonalRecords(data.personal_records)}/>
+
+        <Card.Root bg="bg.inverted" color="fg.inverted" shadow="wca" overflow="hidden" width="full">
+          <Card.Body p={0}>
+            <Table.Root size="xs" striped rounded="md" variant="competitions">
+              <Table.Body>
+              {testCompData.map((comp, index) => (
+                <CompetitionTableEntry comp={comp}/>
+              ))}
+              </Table.Body>
+            </Table.Root>
+          </Card.Body>
+        </Card.Root>
+
       </VStack>
     </Container>
     );

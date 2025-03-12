@@ -375,7 +375,7 @@ const customConfig = defineConfig({
           variant: {
             wcaLink: {
               color: "{colors.blue.solid}",
-              fontWeight: "medium",
+              fontWeight: "semibold",
               _hover: {
                 color: "{colors.blue.solid/80}",
               }
@@ -537,8 +537,37 @@ const customConfig = defineConfig({
               cell: {
                 padding: "0",
               },
-              
+            },
+            competitions: {
+              root: {
+                tableLayout: "auto",
+              },
+              cell: {
+                padding: "0",
+              },
+              row: {
+                width: "1%",
+                whiteSpace: "noWrap",
+                _hover: {
+                  bg: "{colors.blue.50}",
+                }
+              }
             }
+          },
+          size: {
+            xs: {
+              root: {
+                textStyle: "sm",
+              },
+              columnHeader: {
+                px: "1",
+                py: "1",
+              },
+              cell: {
+                px: "1.5",
+                py: "1.5",
+              },
+            },
           }
         }
       }

@@ -45,7 +45,7 @@ const PersonalRecordsTable: React.FC<RecordsProps> = ({ records }) => {
   };
 
   return (
-    <Card.Root bg="bg.inverted" color="fg.inverted" shadow="wca" overflow="none" width="full">
+    <Card.Root bg="bg.inverted" color="fg.inverted" shadow="wca" overflow="hidden" width="full">
       <Card.Body p={0}>
         <Card.Title p={5} fontSize="md" textTransform="uppercase" fontWeight="medium" letterSpacing="wider">Current Personal Records</Card.Title>
         {/* Tables don't seem to inherit styles correctly, normally all the extra bg and fg shouldn't be necessary */}
