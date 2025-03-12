@@ -121,6 +121,7 @@ const customConfig = defineConfig({
         },
         yellow: {
           solid: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.100" } },
+          highContrast: { value:  { _light: "colors.yellow.50", _dark: "colors.yellow.300" } },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
           fg: { value: "{colors.yellow.400}" },
           muted: { value: "{colors.yellow.100/90}" },
@@ -144,6 +145,7 @@ const customConfig = defineConfig({
         },
         green: { 
           solid: { value:  { _light: "colors.green.50", _dark: "colors.green.100" } },
+          highContrast: { value:  { _light: "colors.green.50", _dark: "colors.green.300" } },
           contrast: { value: "{colors.supplementary.texts.light}" },
           fg: { value: "{colors.green.400}" },
           muted: { value: "{colors.green.100/90}" },
@@ -191,6 +193,7 @@ const customConfig = defineConfig({
         },
         red: { 
           solid: { value:  { _light: "colors.red.50", _dark: "colors.red.100" } },
+          highContrast: { value:  { _light: "colors.red.50", _dark: "colors.red.300" } },
           contrast: { value: "{colors.supplementary.texts.light}" },
           fg: { value: "{colors.red.400}" },
           muted: { value: "{colors.red.100/90}" },
@@ -214,6 +217,7 @@ const customConfig = defineConfig({
         },
         orange: { 
           solid: { value:  { _light: "colors.orange.50", _dark: "colors.orange.100" } },
+          highContrast: { value:  { _light: "colors.orange.50", _dark: "colors.orange.300" } },
           contrast: { value: { _light: "colors.supplementary.texts.dark", _dark: "colors.supplementary.texts.light" }, },
           fg: { value: "{colors.orange.400}" },
           muted: { value: "{colors.orange.100/90}" },
@@ -284,8 +288,9 @@ const customConfig = defineConfig({
               borderWidth: "0px", 
               bg: "transparent", 
               color: "fg.DEFAULT",
+              focusRing: "colorPalette.highContrast",
               _hover: {
-                  color: "colorPalette.solid", 
+                  color: "colorPalette.highContrast", 
                   bg: "transparent", 
                 },
                 _expanded: {
@@ -401,7 +406,7 @@ const customConfig = defineConfig({
                 opacity: 0,
               },
               _hover: {
-                color: "{colors.blue.highContrast}",
+                color: "{colors.blue.highContrast/80}",
                 _after: {
                   transform: "translateY(-50%) translateX(0px)",
                   opacity: 1,
