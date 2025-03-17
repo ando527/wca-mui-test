@@ -543,11 +543,12 @@ const customConfig = defineConfig({
                 tableLayout: "auto",
               },
               cell: {
+                width: "1%",
+                whiteSpace: "noWrap",
                 padding: "0",
               },
               row: {
-                width: "1%",
-                whiteSpace: "noWrap",
+                width: "100%",
                 _hover: {
                   bg: "{colors.blue.50}",
                 }
