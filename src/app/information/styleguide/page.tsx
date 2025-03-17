@@ -472,7 +472,7 @@ export default async function Home() {
 
         <Card.Root bg="bg.inverted" color="fg.inverted" shadow="wca" overflow="hidden" width="full">
           <Card.Body p={0}>
-            <Table.Root size="xs" striped rounded="md" variant="competitions">
+            <Table.Root size="xs" rounded="md" variant="competitions">
               <Table.Body>
               {testCompData.map((comp, index) => (
                 <CompetitionTableEntry comp={comp}/>

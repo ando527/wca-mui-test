@@ -548,9 +548,18 @@ const customConfig = defineConfig({
                 padding: "0",
               },
               row: {
+                "& td": {
+                  transitionProperty: "background-color",
+                  transitionTimingFunction: "ease",
+                  transitionDuration: "150ms",
+                },
+                cursor: "pointer",
                 width: "100%",
-                _hover: {
-                  bg: "{colors.blue.50}",
+                "&:nth-of-type(odd) td": {
+                  bg: "bg.muted",
+                },
+                "&:hover td": {
+                  bg: "blue.400/60",
                 }
               }
             }
