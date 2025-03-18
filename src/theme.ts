@@ -580,6 +580,19 @@ const customConfig = defineConfig({
             },
           }
         }
+      },
+      drawer: {
+        variants: {
+          variant: {
+            competitionInfo: {
+              content: {
+                borderRadius: "md",
+                shadow: "{shadows.wca}",
+                height: "max-content",
+              }
+            }
+          }
+        }
       }
     },
   },

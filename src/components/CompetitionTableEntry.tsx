@@ -81,7 +81,7 @@ const CompetitionTableEntry: React.FC<CompsProps> = ({ comp }) => {
         <Table.Cell>
             <Text>{comp.country}</Text>
         </Table.Cell>
-        <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)}>
+        <Drawer.Root open={open} onOpenChange={(e) => setOpen(e.open)} variant="competitionInfo">
             <Portal>
                 <Drawer.Backdrop />
                 <Drawer.Positioner padding="4">
